@@ -2,7 +2,90 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a73bf073-2477-4ec8-9c59-cfce6deed650" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/.env.example" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/.gitattributes" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Console/Kernel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Exceptions/Handler.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Controllers/Auth/ForgotPasswordController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Controllers/Auth/LoginController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Controllers/Auth/RegisterController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Controllers/Auth/ResetPasswordController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Controllers/Controller.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Kernel.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Middleware/EncryptCookies.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Middleware/RedirectIfAuthenticated.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Middleware/TrimStrings.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Middleware/TrustProxies.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Http/Middleware/VerifyCsrfToken.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Providers/AppServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Providers/AuthServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Providers/BroadcastServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Providers/EventServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/Providers/RouteServiceProvider.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/app/User.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/artisan" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/bootstrap/app.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/bootstrap/cache/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/composer.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/app.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/auth.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/broadcasting.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/cache.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/database.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/filesystems.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/mail.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/queue.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/services.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/session.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/config/view.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/database/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/database/factories/UserFactory.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/database/migrations/2014_10_12_000000_create_users_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/database/seeds/DatabaseSeeder.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/package.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/phpunit.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/public/.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/public/css/app.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/public/favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/public/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/public/js/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/public/robots.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/assets/js/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/assets/js/bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/assets/js/components/Example.vue" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/assets/sass/_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/assets/sass/app.scss" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/lang/en/auth.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/lang/en/pagination.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/lang/en/passwords.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/lang/en/validation.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/resources/views/welcome.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/routes/api.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/routes/channels.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/routes/console.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/routes/web.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/server.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/storage/app/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/storage/app/public/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/storage/framework/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/storage/framework/cache/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/storage/framework/sessions/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/storage/framework/testing/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/storage/framework/views/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/storage/logs/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/tests/CreatesApplication.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/tests/Feature/ExampleTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/tests/TestCase.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/tests/Unit/ExampleTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/webpack.mix.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/running-app/yarn.lock" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitattributes" afterPath="$PROJECT_DIR$/.gitattributes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,7 +95,40 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="e#7#389#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Homestead.yaml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Homestead.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +167,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -64,11 +179,13 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -93,32 +210,36 @@
       <option name="presentableId" value="Default" />
       <updated>1507106735150</updated>
       <workItem from="1507106738848" duration="1013000" />
+      <workItem from="1507116575988" duration="182000" />
+      <workItem from="1507117193915" duration="82000" />
+      <workItem from="1507117308025" duration="225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1013000" />
+    <option name="totallyTimeSpent" value="1502000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24305555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24305555" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -133,6 +254,24 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#7#389#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Homestead.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
