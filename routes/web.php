@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/loginstrava', 'Auth\LoginController@redirectToProvider');
+
+Route::get('oauth/code_callback', 'Auth\LoginController@handleProviderCallback');
