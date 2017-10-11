@@ -33,15 +33,18 @@ abstract class StravaHandler extends Model
                 // Check if activity id already exists
                 $activityId = Activity::all()->where('activityId', $result->id)->first();
 
-                // Als activity id reeds bestaat in tabel --> niets
+                // If activity id does not exists
                 if ($activityId === null) {
                     $activity = new Activity;
                     $activity->name = $result->name;
                     $activity->activityId = $result->id;
-                    $activity->stravaId = $result->athlete->id; // = strava_id in table Users
+                    $activity->stravaId = $result->athlete->id; // = stravaId in table Users
                     $activity->distance = $result->distance;
                     $activity->startDate = $result->start_date;
+                    $activity->elapsedTime = $result->elapsed_time;
                     $activity->averageSpeed = $result->average_speed;
+
+                    // save these variables in the database activities
                     $activity->save();
                 }
             }

@@ -20,6 +20,7 @@ class CreateActivitiesTable extends Migration
             $table->string('name');
             $table->integer('distance');
             $table->string('startDate');
+            $table->integer('elapsedTime');
             $table->float('averageSpeed');
             $table->timestamps();
         });

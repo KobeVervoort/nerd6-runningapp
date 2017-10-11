@@ -42,9 +42,11 @@ class LoginController extends Controller
 
     public function login()
     {
+        // If you are already logged in, redirect!
         if(Auth::user()){
             return redirect('/dashboard');
         } else {
+            // You are not logged in, so log in!
             return view('login/login');
         }
 
@@ -66,6 +68,7 @@ class LoginController extends Controller
 
     public function handleProviderCallback()
     {
+        
         $code = request()->code;
         // var_dump($code);
 

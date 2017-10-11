@@ -21,11 +21,12 @@ class ActivitiesController extends Controller
     {
 
         // API request voor alle activities
-        StravaHandler::handleApiRequestAllActivities(); // Gives an error!
+        StravaHandler::handleApiRequestAllActivities();
 
         // haal de records van de ingelogde gebruiker uit de DB en geef deze terug
         $activities = Activity::all()->where('stravaId', auth()->user()->stravaId);
 
+        // return the view with parameter activities to show on screen
         return view('activities')->with('activities', $activities);
     }
 }

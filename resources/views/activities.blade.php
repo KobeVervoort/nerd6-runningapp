@@ -19,11 +19,16 @@
 
 <div class="main">
 
-    <div class="container">
+    <div class="container" style="display:flex;flex-direction:row;justify-content: space-around;">
 
         @foreach($activities as $activity)
 
-            <p>Hallo</p>
+            <div class="element"> <!-- verander class names (en nesting van elementen) zodat opmaak er verzorgd uitziet -->
+
+                <h2>{{ $activity->name }}</h2>
+                <p>Distance run: {{ $activity->distance }}</p>
+                <p>Average speed: {{ $activity->averageSpeed }}</p>
+            </div>
 
         @endforeach
 
