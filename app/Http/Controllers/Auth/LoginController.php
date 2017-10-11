@@ -81,17 +81,18 @@ class LoginController extends Controller
         $user = User::all()->where('stravaId', $athlete->id)->first();
 
         // If such a user already exists, don't create a new one
-
-        $user = new User;
-        $user->stravaId = $athlete->id;
-        $user->token = $result->access_token; // gets the token out of $user 's parent element
-        $user->firstname = $athlete->firstname;
-        $user->lastname = $athlete->lastname;
-        $user->email = $athlete->email;
-        $user->city = $athlete->city; // hardcoded because if empty, error occurs
-        $user->avatar =  $athlete->profile; //"http://lorempixel.com/600/600/people";
-        $user->gender = $athlete->sex;
-        $user->save();
+        if($user == null){
+            $user = new User;
+            $user->stravaId = $athlete->id;
+            $user->token = $result->access_token; // gets the token out of $user 's parent element
+            $user->firstname = $athlete->firstname;
+            $user->lastname = $athlete->lastname;
+            $user->email = $athlete->email;
+            $user->city = $athlete->city; // hardcoded because if empty, error occurs
+            $user->avatar =  $athlete->profile; //"http://lorempixel.com/600/600/people";
+            $user->gender = $athlete->sex;
+            $user->save();
+        }
 
         auth()->login($user);
 
