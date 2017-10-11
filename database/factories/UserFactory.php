@@ -23,7 +23,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'token' => '',
         'city' => $faker->city,
         'avatar' => 'http://lorempixel.com/600/600/people',
-        'gender' => '',
-        'password' => ''
+        'gender' => ''
     ];
 });
