@@ -16,11 +16,14 @@ use Faker\Generator as Faker;
 $factory->define(App\User::class, function (Faker $faker) {
 
     return [
+        'stravaId' => 0,
         'firstname' => $faker->firstName,
         'lastname' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'avatar' => 'http://lorempixel.com/600/600/people',
         'token' => '',
+        'city' => $faker->city,
+        'avatar' => 'http://lorempixel.com/600/600/people',
         'gender' => '',
+        'password' => ''
     ];
 });
