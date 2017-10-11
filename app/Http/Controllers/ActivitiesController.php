@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -22,6 +23,9 @@ class ActivitiesController extends Controller
 
         //var_dump($token);
 
+        // Request the Strava API and get the athlete activities
+
+        // 1 keer in database steken en dan vanuit de database ophalen
         $client = new \GuzzleHttp\Client();
         $res = $client->request( 'GET', 'https://www.strava.com/api/v3/athlete/activities/', [
             'headers' => [
@@ -29,10 +33,29 @@ class ActivitiesController extends Controller
             ]
         ]);
 
-        $result = json_decode($res->getBody());
+        $res = json_decode($res->getBody());
 
-        //var_dump($result);
+        foreach ($res as $result) {
 
-        //return view('activities');
+            // Check if activity id already exists
+            $activityId = Activity::all()->where('activityId', $result->id)->first();
+
+            // Als activity id reeds bestaat in tabel --> niets
+            if ( $activityId === null)
+            {
+                $activity = new Activity;
+                $activity->name = $result->name;
+                $activity->activityId = $result->id;
+                $activity->stravaId = $result->athlete->id; // = strava_id in table Users
+                $activity->distance = $result->distance;
+                $activity->startDate = $result->start_date;
+                $activity->averageSpeed = $result->average_speed;
+                $activity->save();
+            }
+        }
+
+        var_dump($res);
+
+        //return view('activities')->with('activities', $activities);
     }
 }
