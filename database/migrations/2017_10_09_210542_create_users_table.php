@@ -16,14 +16,13 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('stravaId');
+            $table->string('token');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->string('token');
             $table->string('city');
             $table->string('avatar');
             $table->string('gender');
-            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

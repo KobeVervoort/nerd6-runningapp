@@ -68,7 +68,7 @@ class LoginController extends Controller
 
 
         $result = json_decode($res->getBody());
-        // var_dump($result); // shows results of the logged in user
+         var_dump($result); // shows results of the logged in user
         $athlete = $result->athlete;
 
         $user = User::all()->where('stravaId', $athlete->id)->first();
@@ -82,10 +82,9 @@ class LoginController extends Controller
             $user->firstname = $athlete->firstname;
             $user->lastname = $athlete->lastname;
             $user->email = $athlete->email;
-            $user->city = "Mechelen"; // hardcoded because if empty, error occurs
-            $user->avatar = "http://lorempixel.com/600/600/people";
-            $user->gender = "Male";
-            $user->password = TRUE ;
+            $user->city = $athlete->city; // hardcoded because if empty, error occurs
+            $user->avatar =  $athlete->profile; //"http://lorempixel.com/600/600/people";
+            $user->gender = $athlete->sex;
             $user->save();
         }
 
