@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+// login redirects
 Route::get('/login', 'Auth\LoginController@login');
-
 Route::get('/loginstrava', 'Auth\LoginController@redirectToProvider');
-
 Route::get('oauth/code_callback', 'Auth\LoginController@handleProviderCallback');
+
+// User activities
+Route::get('/myactivities', 'ActivitiesController@showAll');
