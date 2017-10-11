@@ -88,7 +88,12 @@ class LoginController extends Controller
             $user->firstname = $athlete->firstname;
             $user->lastname = $athlete->lastname;
             $user->email = $athlete->email;
-            $user->city = $athlete->city; // hardcoded because if empty, error occurs
+            if($user->city == null)
+            {
+                $user->city = "";
+            } else {
+                $user->city = $athlete->city;
+            }
             $user->avatar =  $athlete->profile; //"http://lorempixel.com/600/600/people";
             $user->gender = $athlete->sex;
             $user->save();

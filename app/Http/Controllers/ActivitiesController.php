@@ -17,14 +17,10 @@ class ActivitiesController extends Controller
 
     public function showAll()
     {
+        // Get token from logged in user
+        //$token = Auth::user()->token;
 
-        $code = request()->code;
-        // var_dump($code);
-
-        //$id = Auth::user()->id;
-        $token  = User::all()->where('id', 1);
-        var_dump($token);
-        // $token = Auth::User->token();
+        //var_dump($token);
 
         $client = new \GuzzleHttp\Client();
         $res = $client->request( 'GET', 'https://www.strava.com/api/v3/athlete/activities/', [
