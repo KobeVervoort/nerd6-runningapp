@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,14 +13,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
+// routes only accessible after a user is logged in
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
+    Route::get('/logout', 'Auth\LoginController@destroy');
+    Route::get('/myactivities', 'ActivitiesController@showAll');
 });
 
-// login redirects
-Route::get('/login', 'Auth\LoginController@login');
+// routes accessible to everyone
 Route::get('/loginstrava', 'Auth\LoginController@redirectToProvider');
 Route::get('oauth/code_callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/', 'Auth\LoginController@login')->name('login');
 
-// User activities
-Route::get('/myactivities', 'ActivitiesController@showAll');
+
