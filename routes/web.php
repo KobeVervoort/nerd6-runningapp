@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/login', 'Auth\LoginController@login');
 
 Route::get('/loginstrava', 'Auth\LoginController@redirectToProvider');
 
