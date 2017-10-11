@@ -9,10 +9,10 @@
 
     <a href="" class="my-profile-link">
 
-        <p>John</p>
-        <p>Appleseed</p>
+        <p>{{Auth::User()->firstname}}</p>
+        <p>{{Auth::User()->lastname}}</p>
 
-        <img src="" alt="" class="my-profile-link__image">
+        <img src="{{Auth::User()->avatar}}" alt="" class="my-profile-link__image">
 
     </a>
 
