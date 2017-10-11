@@ -13,7 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// routes accessible to everyone
+
+Route::get('/loginstrava', 'Auth\LoginController@redirectToProvider');
+Route::get('oauth/code_callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/', 'Auth\LoginController@login')->name('login');
+
 // routes only accessible after a user is logged in
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -22,9 +29,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/myactivities', 'ActivitiesController@showAll');
 });
 
-// routes accessible to everyone
-Route::get('/loginstrava', 'Auth\LoginController@redirectToProvider');
-Route::get('oauth/code_callback', 'Auth\LoginController@handleProviderCallback');
-Route::get('/', 'Auth\LoginController@login')->name('login');
+
 
 
