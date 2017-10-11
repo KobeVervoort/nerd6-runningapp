@@ -19,6 +19,17 @@
 
 <div class="main">
 
+    <div class="container">
+
+        @foreach($activities as $activity)
+
+            <p>Hallo</p>
+
+        @endforeach
+
+    </div>
+
+
 </div>
 
 </body>
