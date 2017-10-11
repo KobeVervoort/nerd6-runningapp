@@ -11,15 +11,15 @@
 </head>
 <body>
 
-    <header class="header">
+<header class="header">
 
-        @include('shared.nav')
+    @include('shared.nav')
 
-    </header>
+</header>
 
-    <div class="main">
+<div class="main">
 
-    </div>
+</div>
 
 </body>
 </html>
