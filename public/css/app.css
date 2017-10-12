@@ -1,31 +1,66 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);.header {
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);.login-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header {
   height: 300px;
-  background: -webkit-gradient(linear, left top, right top, from(#00c6ff), to(#0072ff));
-  background: linear-gradient(left, #00c6ff, #0072ff);
+  background: -webkit-gradient(linear, right top, left top, from(#00c6ff), to(#0072ff));
+  background: linear-gradient(to left, #00c6ff, #0072ff);
 }
 
 .login {
-  width: 400px;
-  margin: auto;
-  text-align: center;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  min-width: 450px;
   font-family: "roboto", sans-serif;
-  margin-top: 100px;
+  margin-top: 200px;
+  background-color: white;
 }
 
-.login .login__button {
+.login__title {
+  margin-bottom: 60px;
+  margin-left: 70px;
+  margin-right: 70px;
+  font-size: 2.2em;
+  font-weight: 200;
+  line-height: 1.4em;
+}
+
+.login__title--emphasis {
+  font-weight: 700;
+  font-size: 1em;
+  margin: 0;
+  color: #0072ff;
+  text-transform: uppercase;
+}
+
+.login__button {
   background-color: #fa4e1f;
+  margin-left: 70px;
+  margin-right: 70px;
   padding: 8px;
   padding-right: 13px;
   border-radius: 3px;
   font-size: 1.5em;
+  font-weight: 200;
   color: white;
   text-decoration: none;
 }
 
-.login .login__logo {
-  width: 110px;
+.login__logo {
+  width: 100px;
   position: relative;
-  top: 3px;
-  left: 5px;
+  top: 2px;
+  left: 4px;
+}
+
+.about-block {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  height: 100vh;
+  background: -webkit-gradient(linear, right top, left top, from(#00c6ff), to(#0072ff));
+  background: linear-gradient(to left, #00c6ff, #0072ff);
 }
 

@@ -11,12 +11,21 @@
 </head>
 <body>
 
-    <div class="login">
+    <div class="login-wrapper">
 
-        <h1 class="login__title">Welcome to Nerd Running</h1>
+        <div class="login">
 
-        <a class="login__button" href="/loginstrava">Connect with <img src="img/strava_logo.png" alt="Strava logo" class="login__logo"></a>
+            <h1 class="login__title">Start your journey and go those <span class="login__title login__title--emphasis">10 miles</span> and beyond</h1>
+
+            <a class="login__button" href="/loginstrava">Connect with <img src="img/strava_logo.png" alt="Strava logo" class="login__logo"></a>
+
+        </div>
+
+        <div class="about-block">
+
+        </div>
 
     </div>
+
 </body>
 </html>

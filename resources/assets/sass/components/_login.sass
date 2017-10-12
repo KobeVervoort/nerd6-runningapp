@@ -1,21 +1,39 @@
 .login
-  width: 400px
-  margin: auto
-  text-align: center
+  flex-basis: 50%
+  min-width: 450px
   font-family: $roboto
-  margin-top: 100px
+  margin-top: 200px
+  background-color: white
 
-  .login__button
+  +element('title')
+    margin-bottom: 60px
+    margin-left: 70px
+    margin-right: 70px
+    font-size: 2.2em
+    font-weight: 200
+    line-height: 1.4em
+
+    +modifier('emphasis')
+      font-weight: 700
+      font-size: 1em
+      margin: 0
+      color: #0072ff
+      text-transform: uppercase
+
+  +element('button')
     background-color: $stravaColor
+    margin-left: 70px
+    margin-right: 70px
     padding: 8px
     padding-right: 13px
     border-radius: 3px
     font-size: 1.5em
+    font-weight: 200
     color: white
     text-decoration: none
 
-  .login__logo
-    width: 110px
+  +element('logo')
+    width: 100px
     position: relative
-    top: 3px
-    left: 5px
+    top: 2px
+    left: 4px

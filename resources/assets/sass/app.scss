@@ -1,7 +1,12 @@
 @import "base/fonts";
 
+@import "helpers/mixins";
 @import "helpers/variables";
+
+@import "layouts/wrappers";
 
 @import "components/header";
 @import "components/login";
 @import "components/nav";
+@import "components/about-block";
+
