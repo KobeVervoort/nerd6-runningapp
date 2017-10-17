@@ -68,9 +68,9 @@ class LoginController extends Controller
 
     public function handleProviderCallback()
     {
-        
+
         $code = request()->code;
-        // var_dump($code);
+        var_dump($code);
 
         $client = new \GuzzleHttp\Client();
         $res = $client->request( 'POST', 'https://www.strava.com/oauth/token', [
@@ -84,7 +84,7 @@ class LoginController extends Controller
 
 
         $result = json_decode($res->getBody());
-         var_dump($result); // shows results of the logged in user
+        var_dump($result); // shows results of the logged in user
         $athlete = $result->athlete;
 
         $user = User::all()->where('stravaId', $athlete->id)->first();
