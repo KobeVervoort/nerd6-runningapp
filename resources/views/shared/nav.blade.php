@@ -7,7 +7,7 @@
     <a href="" class="nav__link">item 3</a>
     <a href="" class="nav__link">item 4</a>
 
-    <a href="" class="my-profile-link">
+    <a href="/profile" class="my-profile-link">
 
         <p>{{$authUser->firstname . " " . $authUser->lastname}}</p>
 

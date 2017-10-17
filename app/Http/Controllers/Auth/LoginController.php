@@ -62,7 +62,7 @@ class LoginController extends Controller
     public function redirectToProvider()
     {
 
-        return redirect("https://www.strava.com/oauth/authorize?client_id=20719&response_type=code&redirect_uri=http://homestead.app/oauth/code_callback&scope=write&state=mystate&approval_prompt=force");
+        return redirect("https://www.strava.com/oauth/authorize?client_id=20719&response_type=code&redirect_uri=http://homestead.app/oauth/code_callback&scope=write&state=mystate");
 
     }
 
