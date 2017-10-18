@@ -26,7 +26,10 @@ class ActivitiesController extends Controller
         // haal de records van de ingelogde gebruiker uit de DB en geef deze terug
         $activities = Activity::all()->where('stravaId', auth()->user()->stravaId);
 
+        // haal activiteit op met de hoogste afgelegde afstand
+        $bestRun = Activity::with('distance')->where('stravaId', auth()->user()->stravaId)->max('distance');
+
         // return the view with parameter activities to show on screen
-        return view('activities')->with('activities', $activities);
+        return view('activities')->with(compact('activities', 'bestRun'));
     }
 }
