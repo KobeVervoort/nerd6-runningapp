@@ -1,41 +1,37 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/reset.css" type="text/css">
-    <link rel="stylesheet" href="css/app.css" type="text/css">
-    <title>NERD</title>
-</head>
-<body>
+@extends ('layout')
 
-<header class="header">
+@section ('header-info')
 
-    @include('shared.nav')
+    <h1 class="progress">{{number_format($bestRun/1000, 2, '.', '')}}km / 16km</h1>
 
-</header>
+    <div class="full-progress-bar"></div>
 
-<div class="main">
+    <div class="my-progress-bar" style="width: {{($bestRun/16000)*100}}%"></div>
 
-    <div class="container" style="display:flex;flex-direction:row;justify-content: space-around;">
+@endsection
 
-        @foreach($activities as $activity)
+@section ('content')
 
-            <div class="element"> <!-- verander class names (en nesting van elementen) zodat opmaak er verzorgd uitziet -->
+    @foreach($activities as $activity)
 
-                <h2>{{ $activity->name }}</h2>
-                <p>Distance run: {{ $activity->distance }}</p>
-                <p>Average speed: {{ $activity->averageSpeed }}</p>
+        <div class="activity">
+
+            <div class="activity-info">
+                <div class="user-info">
+                    <img src="{{$authUser->avatar}}" alt="" class="user-info__avatar">
+                    <p class="user-info__name">{{$authUser->firstname . ' ' . $authUser->lastname}}</p>
+                </div>
+                <p class="activity-info__date">{{$activity->created_at->diffForHumans()}}</p>
             </div>
 
-        @endforeach
+            <div class="activity-data">
+                <h2 class="activity-data__name">{{ $activity->name }}</h2>
+                <p class="activity-data__metric">Distance: {{ number_format($activity->distance/1000, 2, '.', '' )}} km</p>
+                <p class="activity-data__metric">Speed: {{ number_format($activity->averageSpeed * 3.6, 2, '.', '') }} km/h</p>
+            </div>
 
-    </div>
+        </div>
 
+    @endforeach
 
-</div>
-
-</body>
-</html>
+@endsection
