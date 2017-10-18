@@ -16,9 +16,12 @@ class UsersController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function showInformation()
+    public function information()
     {
         // return the view with parameter activities to show on screen
         return view('profile');
     }
+
+
+
 }

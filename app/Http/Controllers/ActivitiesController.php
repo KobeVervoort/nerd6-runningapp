@@ -17,7 +17,7 @@ class ActivitiesController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function showAll()
+    public function all()
     {
 
         // API request voor alle activities
@@ -31,5 +31,12 @@ class ActivitiesController extends Controller
 
         // return the view with parameter activities to show on screen
         return view('activities')->with(compact('activities', 'bestRun'));
+    }
+
+    public function friends()
+    {
+        // Get all activities except for the logged in user
+        $activities = Activity::all()->where('stravaId', '!=' , auth()->user()->stravaId);
+        return view('dashboard')->with(compact('activities'));
     }
 }

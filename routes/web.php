@@ -22,10 +22,10 @@ Route::get('/', 'Auth\LoginController@login')->name('login');
 // routes only accessible after a user is logged in
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboard', function () {return view('dashboard');});
+    Route::get('/dashboard', 'ActivitiesController@friends');
     Route::get('/logout', 'Auth\LoginController@destroy');
-    Route::get('/myactivities', 'ActivitiesController@showAll');
-    Route::get('/profile', 'UsersController@showInformation');
+    Route::get('/myactivities', 'ActivitiesController@all');
+    Route::get('/profile', 'UsersController@information');
 });
 
 
