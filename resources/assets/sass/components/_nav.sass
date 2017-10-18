@@ -1,0 +1,51 @@
+.nav
+  height: 50px
+  font-family: $roboto
+  text-align: center
+
+  +element('link')
+    color: white
+    text-decoration: none
+    font-weight: 200
+    font-size: 1em
+    position: relative
+    top: 22px
+    border: 1px solid white
+    margin-left: -6px
+    padding: 5px 9px
+    text-transform: capitalize
+
+    +modifier('active')
+      background: white
+      color: $blue
+
+    +modifier('left')
+      border-top-left-radius: 6px
+      border-bottom-left-radius: 6px
+
+    +modifier('right')
+      border-top-right-radius: 6px
+      border-bottom-right-radius: 6px
+
+.my-profile-link
+  height: 40px
+  position: absolute
+  top: 15px
+  right: 15px
+  display: flex
+  color: white
+  text-decoration: none
+  font-weight: 200
+  font-size: 1.2em
+
+  +element(name)
+    margin-top: 10px
+    margin-right: 10px
+    display: none
+
+  +element(image)
+    width: 32px
+    height: 32px
+    -webkit-border-radius: 25px
+    -moz-border-radius: 25px
+    border-radius: 25px
