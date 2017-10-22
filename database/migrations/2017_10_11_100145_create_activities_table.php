@@ -14,12 +14,15 @@ class CreateActivitiesTable extends Migration
     public function up()
     {
         Schema::create('activities', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('activityId');
-            $table->integer('stravaId');
+            $table->integer('userId')->unsigned();
+            $table->foreign('userId')->references('id')->on('users');
             $table->string('name');
             $table->integer('distance');
-            $table->string('startDate');
+            $table->dateTime('startDate');
+            $table->dateTime('endDate');
             $table->integer('elapsedTime');
             $table->float('averageSpeed');
             $table->timestamps();
