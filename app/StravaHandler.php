@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 abstract class StravaHandler extends Model
 {
@@ -38,11 +39,15 @@ abstract class StravaHandler extends Model
                     $activity = new Activity;
                     $activity->name = $result->name;
                     $activity->activityId = $result->id;
-                    $activity->stravaId = $result->athlete->id; // = stravaId in table Users
+                    $activity->userId = DB::table('users')->where('stravaId', $result->athlete->id)->first()->id;
                     $activity->distance = $result->distance;
-                    $activity->startDate = $result->start_date;
+
+                    $startdate = new \DateTime($result->start_date);
+                    $activity->startDate = new \DateTime($result->start_date);
+                    $activity->endDate = $startdate->add(new \DateInterval('PT' . $result->elapsed_time . 'S'));
                     $activity->elapsedTime = $result->elapsed_time;
                     $activity->averageSpeed = $result->average_speed;
+
 
                     // save these variables in the database activities
                     $activity->save();
