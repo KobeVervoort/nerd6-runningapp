@@ -11,16 +11,15 @@
         @else
 
             @foreach($activities as $activity)
-                <?php var_dump($activity); ?>
 
                 <div class="activity">
 
                     <div class="activity-info">
                         <div class="user-info">
-                            <img src="" alt="" class="user-info__avatar">
-                            <p class="user-info__name">{{$authUser->firstname . ' ' . $authUser->lastname}}</p>
+                            <img src="{{$activity->user->avatar}}" alt="" class="user-info__avatar">
+                            <p class="user-info__name">{{$activity->user->firstname . ' ' . $activity->user->lastname}}</p>
                         </div>
-                        <p class="activity-info__date">{{$activity->created_at->diffForHumans()}}</p>
+                        <p class="activity-info__date">{{$activity->endDate->diffForHumans()}}</p>
                     </div>
 
                     <div class="activity-data">
