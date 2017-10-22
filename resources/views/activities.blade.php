@@ -6,7 +6,7 @@
 
     <div class="full-progress-bar"></div>
 
-    <div class="my-progress-bar" style="width: {{($bestRun/16000)*100}}%"></div>
+    <div class="my-progress-bar" style ="{{$bestRun < 200 ? "visibility: hidden" : 'width: ' . ($bestRun/16000)*100 . '%; visibility: visible'}}"></div>
 
 @endsection
 
@@ -21,7 +21,7 @@
                     <img src="{{$authUser->avatar}}" alt="" class="user-info__avatar">
                     <p class="user-info__name">{{$authUser->firstname . ' ' . $authUser->lastname}}</p>
                 </div>
-                <p class="activity-info__date">{{$activity->created_at->diffForHumans()}}</p>
+                <p class="activity-info__date">{{$activity->endDate->diffForHumans()}}</p>
             </div>
 
             <div class="activity-data">
