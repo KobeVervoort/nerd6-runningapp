@@ -24,10 +24,10 @@ class ActivitiesController extends Controller
         StravaHandler::handleApiRequestAllActivities();
 
         // haal de records van de ingelogde gebruiker uit de DB en geef deze terug
-        $activities = Activity::all()->where('stravaId', auth()->user()->stravaId);
+        $activities = Activity::all()->where('userId', auth()->user()->id);
 
         // haal activiteit op met de hoogste afgelegde afstand
-        $bestRun = Activity::with('distance')->where('stravaId', auth()->user()->stravaId)->max('distance');
+        $bestRun = Activity::with('distance')->where('userId', auth()->user()->id)->max('distance');
 
         // return the view with parameter activities to show on screen
         return view('activities')->with(compact('activities', 'bestRun'));
@@ -36,7 +36,7 @@ class ActivitiesController extends Controller
     public function friends()
     {
         // Get all activities except for the logged in user
-        $activities = Activity::all()->where('stravaId', '!=' , auth()->user()->stravaId);
+        $activities = Activity::all()->where('userId', '!=' , auth()->user()->id);
         return view('dashboard')->with(compact('activities'));
     }
 }
