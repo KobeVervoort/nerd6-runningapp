@@ -20,9 +20,6 @@ class ActivitiesController extends Controller
     public function all()
     {
 
-        // API request voor alle activities
-        StravaHandler::handleApiRequestAllActivities();
-
         // haal de records van de ingelogde gebruiker uit de DB en geef deze terug
         $activities = Activity::all()->where('userId', auth()->user()->id);
 

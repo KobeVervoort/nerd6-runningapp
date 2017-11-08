@@ -220,3 +220,12 @@
   color: dimgray;
 }
 
+footer {
+  background: -webkit-gradient(linear, right top, left top, from(#00c6ff), to(#0072ff));
+  background: linear-gradient(to left, #00c6ff, #0072ff);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+
