@@ -13,4 +13,9 @@ class User extends Authenticatable
         return $this->hasMany(Activity::class);
     }
 
+    public function achievements()
+    {
+        return $this->belongsToMany('App/Achievement')->withTimestamps();
+    }
+
 }
