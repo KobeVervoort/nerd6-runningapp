@@ -37,20 +37,24 @@ abstract class StravaHandler extends Model
                 // If activity id does not exists
                 if ($activityId === null) {
                     $activity = new Activity;
-                    $activity->name = $result->name;
-                    $activity->activityId = $result->id;
-                    $activity->userId = DB::table('users')->where('stravaId', $result->athlete->id)->first()->id;
-                    $activity->distance = $result->distance;
 
-                    $startdate = new \DateTime($result->start_date);
-                    $activity->startDate = new \DateTime($result->start_date);
-                    $activity->endDate = $startdate->add(new \DateInterval('PT' . $result->elapsed_time . 'S'));
-                    $activity->elapsedTime = $result->elapsed_time;
-                    $activity->averageSpeed = $result->average_speed;
+                    // Check if the activity is a run
+                    if ($activity->averageSpeed <= 20) {
 
+                        $activity->name = $result->name;
+                        $activity->activityId = $result->id;
+                        $activity->userId = DB::table('users')->where('stravaId', $result->athlete->id)->first()->id;
+                        $activity->distance = $result->distance;
 
-                    // save these variables in the database activities
-                    $activity->save();
+                        $startdate = new \DateTime($result->start_date);
+                        $activity->startDate = new \DateTime($result->start_date);
+                        $activity->endDate = $startdate->add(new \DateInterval('PT' . $result->elapsed_time . 'S'));
+                        $activity->elapsedTime = $result->elapsed_time;
+                        $activity->averageSpeed = $result->average_speed;
+
+                        // save these variables in the database activities
+                        $activity->save();
+                    }
                 }
             }
         }

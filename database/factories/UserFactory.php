@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +16,36 @@ use Faker\Generator as Faker;
 
 $factory->define(App\User::class, function (Faker $faker) {
 
+    $genders = ['M', 'F'];
+
     return [
-        'stravaId' => 0,
+        'stravaId' => $faker->numberBetween(0, 10),
+        'token' => $faker->randomNumber(8),
         'firstname' => $faker->firstName,
         'lastname' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
-        'token' => '',
         'city' => $faker->city,
         'avatar' => 'http://lorempixel.com/600/600/people',
-        'gender' => ''
+        'gender' => 'M'/*$faker->randomElements($genders)*/,
+        'remember_token' => ''
+    ];
+});
+
+$factory->define(App\Activity::class, function (Faker $faker) {
+
+    // Fetch all user ids
+    $userIDs = App\User::all()->pluck('id')->toArray();
+    // Get random user id
+    $userID = $faker->randomElement($userIDs);
+
+    return [
+        'activityId' => $faker->randomNumber(8),
+        'userId' => $userID,
+        'name' => $faker->realText(50),
+        'distance' => $faker->numberBetween(1, 30),
+        'startDate' => $faker->date(Carbon::now()),
+        'endDate' => $faker->date(Carbon::now()),
+        'elapsedTime' => 1,
+        'averageSpeed' => $faker->numberBetween(0, 20),
     ];
 });

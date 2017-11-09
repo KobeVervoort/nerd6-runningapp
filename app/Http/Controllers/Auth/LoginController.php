@@ -108,8 +108,8 @@ class LoginController extends Controller
             $user->save();
         }
 
-        auth()->login($user);
+        //auth()->login($user);
 
-        return redirect('/dashboard');
+        //return redirect('/dashboard');
     }
 }
