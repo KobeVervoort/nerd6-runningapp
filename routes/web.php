@@ -24,7 +24,7 @@ Route::get('/', 'Auth\LoginController@login')->name('login');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', 'ActivitiesController@friends');
     Route::get('/logout', 'Auth\LoginController@destroy');
-    Route::get('/myactivities', 'ActivitiesController@all');
+    Route::get('/myactivities', 'ActivitiesController@runActivitiesLoggedInUser');
     Route::get('/profile', 'UsersController@information');
 });
 

@@ -17,7 +17,7 @@ class ActivitiesController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function all()
+    public function runActivitiesLoggedInUser()
     {
 
         // haal de records van de ingelogde gebruiker uit de DB en geef deze terug
@@ -35,5 +35,30 @@ class ActivitiesController extends Controller
         // Get all activities except for the logged in user
         $activities = Activity::all()->where('userId', '!=' , auth()->user()->id);
         return view('dashboard')->with(compact('activities'));
+    }
+
+    public function allUserDistance()
+    {
+        // Get all activities from a user
+        $distance= Activity::all()->sum('distance');
+        return $distance;
+    }
+
+    public function totalUserDistance($id)
+    {
+        // Get all activities from a user
+        $distanceActivity = Activity::all()->where('userId', '=', $id)->sum('distance');
+        return /*view('dashboard')->with(compact('activities'))*/;
+    }
+
+    public function FiveBestUsersDistance($id)
+    {
+        // Get all users
+        $users = App\User::all();
+
+        //
+
+        //$distanceActivity = Activity::all()->where('userId', '=', $id)->sum('distance');
+        return /*view('dashboard')->with(compact('activities'))*/;
     }
 }
