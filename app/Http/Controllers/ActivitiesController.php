@@ -54,9 +54,8 @@ class ActivitiesController extends Controller
     public function FiveBestUsersDistance($id)
     {
         // Get all users
-        $users = App\User::all();
-
-        //
+        $users = Activity::all()->groupBy('userId')->sum('distance')->orderBy('distance')->take(5);
+        
 
         //$distanceActivity = Activity::all()->where('userId', '=', $id)->sum('distance');
         return /*view('dashboard')->with(compact('activities'))*/;
