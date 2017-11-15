@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -57,6 +58,75 @@ abstract class StravaHandler extends Model
                     }
                 }
             }
+        }
+    }
+
+    public static function userDistances()
+    {
+        self::weeklyUserDistances();
+        self::totalUserDistances();
+    }
+
+    public static function weeklyUserDistances()
+    {
+
+        // Get every user, stored in an array
+        $users = User::all();
+        $activity = Activity::all();
+
+        foreach ($users as $user) {
+
+            // check if row exists
+            $rowDB = UserDistance::where('userId', $user->id)->first();
+            $sumWeeklyDistances = $activity->where('userId', '=', $user->id)->where('endDate', '>', Carbon::now()->subDays(7))->sum('distance');
+
+            if( $rowDB == null  ) {
+                $userDistance = new UserDistance();
+                $userDistance->userId = $user->id;
+                $userDistance->totalDistance = 0;
+
+                \Log::info('weeklyUserDistance didnt exist yet for user ' . $user->id);
+
+            } else {
+
+                $userDistance = UserDistance::where('userId', $user->id)->first();
+                $userDistance->updated_at = Carbon::now();
+                //\Log::info('weeklyUserDistance updated for user ' . $user->id);
+            }
+
+            // set totalDistance
+            $userDistance->weeklyDistance = $sumWeeklyDistances;
+
+            // save/update record in database
+            $userDistance->save();
+
+
+        }
+    }
+
+    public static function totalUserDistances()
+    {
+
+        // Get every user, stored in an array
+        $users = User::all();
+        $activity = Activity::all();
+
+        foreach ($users as $user) {
+
+            // check if row exists
+            $sumDistances = $activity->where('userId', '=', $user->id)->sum('distance');
+
+            $userDistance = UserDistance::where('userId', $user->id)->first();
+            $userDistance->updated_at = Carbon::now();
+            //\Log::info('totalUserDistance updated for user ' . $user->id);
+
+            // set totalDistance
+            $userDistance->totalDistance = $sumDistances;
+
+            // save/update record in database
+            $userDistance->save();
+
+
         }
     }
 }

@@ -6,6 +6,7 @@ use App\Activity;
 use App\Http\Controllers\Controller;
 use App\StravaHandler;
 use App\User;
+use App\UserDistance;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\View\View;
 
@@ -20,44 +21,68 @@ class ActivitiesController extends Controller
     public function runActivitiesLoggedInUser()
     {
 
-        // haal de records van de ingelogde gebruiker uit de DB en geef deze terug
         $activities = Activity::all()->where('userId', auth()->user()->id);
 
-        // haal activiteit op met de hoogste afgelegde afstand
+        // Fetch activity with max distance (only fetch distance)
         $bestRun = Activity::with('distance')->where('userId', auth()->user()->id)->max('distance');
 
         // return the view with parameter activities to show on screen
         return view('activities')->with(compact('activities', 'bestRun'));
     }
 
-    public function friends()
+    public function allUsersActivities()
     {
         // Get all activities except for the logged in user
-        $activities = Activity::all()->where('userId', '!=' , auth()->user()->id);
-        return view('dashboard')->with(compact('activities'));
+        $allUsersActivities = Activity::all()->where('userId', '!=' , auth()->user()->id);
+
+        return $allUsersActivities;
     }
 
-    public function allUserDistance()
+    public function lastLoggedInActivities()
+    {
+        // Get all activities except for the logged in user
+        $lastLoggedInActivities = Activity::all()->where('userId', '=' , auth()->user()->id)->first();
+
+        return $lastLoggedInActivities;
+    }
+
+    public function allLoggedInActivities()
+    {
+        // Get all activities except for the logged in user
+        $allLoggedInActivities = Activity::orderBy('endDate', 'desc')->get()->where('userId', '=' , auth()->user()->id);
+
+        return $allLoggedInActivities;
+    }
+
+    public function allUserDistances()
     {
         // Get all activities from a user
-        $distance= Activity::all()->sum('distance');
-        return $distance;
+        $distances = UserDistance::all();
+
+        return $distances;
     }
 
     public function totalUserDistance($id)
     {
-        // Get all activities from a user
-        $distanceActivity = Activity::all()->where('userId', '=', $id)->sum('distance');
-        return /*view('dashboard')->with(compact('activities'))*/;
+        // Fetch total distance from a user
+        $totalUserDistance = UserDistance::find($id);
+
+        return $totalUserDistance;
     }
 
-    public function FiveBestUsersDistance($id)
+    public function totalUsersDistance()
     {
-        // Get all users
-        $users = Activity::all()->groupBy('userId')->sum('distance')->orderBy('distance')->take(5);
-        
+        // Fetch total distance from all users
+        $totalUsersDistance = UserDistance::all()->sum('totalDistance');
 
-        //$distanceActivity = Activity::all()->where('userId', '=', $id)->sum('distance');
-        return /*view('dashboard')->with(compact('activities'))*/;
+        return $totalUsersDistance;
+    }
+
+    public function TopWeeklyRunners()
+    {
+        // Get all weekly distances from users, sort them and return the best 5
+        $users = UserDistance::orderBy('weeklyDistance', 'desc')->take(5)->get();
+
+        return $users;
     }
 }

@@ -42,5 +42,10 @@ class ApiRequest extends Command
         \Log::info('Fetched user activities at ' . Carbon::now());
         // API request for all the activities
         StravaHandler::handleApiRequestAllActivities();
+
+        \Log::info('Calculating user distances at ' . Carbon::now());
+        // Calculation on table activities
+        StravaHandler::userDistances();
+
     }
 }
