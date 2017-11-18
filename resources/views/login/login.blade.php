@@ -11,20 +11,17 @@
 </head>
 <body>
 
-    <div class="login-wrapper">
+    <div class="login">
 
-        <div class="login">
+        <img src="img/logo.png" alt="Extra Mile Logo" class="login__logo">
 
-            <h1 class="login__title">Start your journey and go those <span class="login__title login__title--emphasis">10 miles</span> and beyond</h1>
+        <h1 class="login__title">Are you ready to go the <span class="login__title-span">Extra Mile</span>?</h1>
 
-            <a class="login__button" href="/loginstrava">Connect with <img src="img/strava_logo.png" alt="Strava logo" class="login__logo"></a>
+        <p class="login__call">Login or sign up with</p>
 
+        <div class="login__button">
+            <a class="login__button-link" href="/loginstrava"><img src="img/strava_logo.png" alt="Strava logo" class="login__logo"></a>
         </div>
-
-        <div class="about-block">
-
-        </div>
-
     </div>
 
 </body>

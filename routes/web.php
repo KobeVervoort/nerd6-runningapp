@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', 'Auth\LoginController@destroy');
     Route::get('/myactivities', 'ActivitiesController@runActivitiesLoggedInUser');
     Route::get('/profile', 'UsersController@information');
+    Route::get('/signup', 'LoginController@signup');
 });
 
 

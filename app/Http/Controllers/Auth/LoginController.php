@@ -106,10 +106,14 @@ class LoginController extends Controller
             $user->avatar =  $athlete->profile; //"http://lorempixel.com/600/600/people";
             $user->gender = $athlete->sex;
             $user->save();
+
+            auth()->login($user);
+
+            return redirect('/signup');
+        } else {
+            auth()->login($user);
+
+            return redirect('/dashboard');
         }
-
-        auth()->login($user);
-
-        return redirect('/dashboard');
     }
 }
