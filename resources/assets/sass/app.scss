@@ -1,18 +1,6 @@
 @import "base/fonts";
 
-//import bootstrap
-@import "~bootstrap/scss/bootstrap";
-
 @import "helpers/mixins";
 @import "helpers/variables";
 
-@import "layouts/wrappers";
-@import "layouts/main";
-
-@import "components/header";
-@import "components/login";
-@import "components/nav";
-@import "components/about-block";
-@import "components/activity";
-@import "components/footer";
-
+@import "layouts/login";

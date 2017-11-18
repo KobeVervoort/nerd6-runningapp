@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/reset.css" type="text/css">
     <link rel="stylesheet" href="css/app.css" type="text/css">
-    <link rel="stylesheet" href="">
     <title>Nerd Running</title>
 </head>
 <body>

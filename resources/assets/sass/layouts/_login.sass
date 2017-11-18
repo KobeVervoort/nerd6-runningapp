@@ -1,0 +1,50 @@
+*
+  box-sizing: border-box
+
+.login
+  background: $blue url("#{$asset_path}/img/routes.png")
+  background-repeat: no-repeat
+  background-size: cover
+  height: 100vh
+  width: 100%
+  padding: 40px 0
+  font-family: $lato
+  color: white
+
+  +element('logo')
+    display: block
+    margin: auto
+    padding-right: 10px
+    width: 130px
+
+  +element('title')
+    font-weight: $light
+    font-size: 2.2rem
+    margin: 150px auto
+    padding: 0 20px
+    text-align: center
+    line-height: 2.6rem
+
+  +element('title-span')
+    font-weight: $bold
+
+  +element('call')
+    text-align: center
+    position: absolute
+    bottom: 100px
+    width: 100%
+    font-weight: $light
+    font-size: 1.2rem
+
+  +element('button')
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    padding: 30px
+
+  +element('button-link')
+    display: block
+    padding: 12px
+    background-color: $stravaColor
+    border-radius: 2px
