@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('avatar');
             $table->string('gender');
+            $table->integer('group_id')->unsigned()->nullable();
+            $table->foreign('group_id')->references('id')->on('groups');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,4 +1,163 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900);* {
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900);.header {
+  padding: 16px;
+}
+
+.main {
+  padding: 0 16px 16px 16px;
+}
+
+.title {
+  color: #0035BB;
+  font-family: "lato", sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  margin-top: 16px;
+}
+
+.normal-text {
+  font-family: "lato", sans-serif;
+  line-height: 1.4rem;
+}
+
+.button-arrow {
+  height: 20px;
+  position: relative;
+  top: 2px;
+}
+
+.signup-form {
+  margin-top: 16px;
+}
+
+.signup-form__input {
+  width: 100%;
+  border: none;
+  border-radius: 2px;
+  background: #0035BB url("http://homestead.app/img/routes.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 30%;
+  padding: 10px 8px;
+  font-size: 1rem;
+  color: white;
+}
+
+.signup-form__input::-webkit-input-placeholder {
+  color: white;
+}
+
+.signup-form__input:-ms-input-placeholder {
+  color: white;
+}
+
+.signup-form__input::-ms-input-placeholder {
+  color: white;
+}
+
+.signup-form__input::placeholder {
+  color: white;
+}
+
+.signup-form__input--padded {
+  margin-bottom: 10px;
+}
+
+.signup-form__group-list {
+  border-right: 2px solid #D8D8D8;
+  border-left: 2px solid #D8D8D8;
+}
+
+.signup-form__group {
+  padding: 10px 7px;
+  font-family: "lato", sans-serif;
+  border-bottom: 2px solid #D8D8D8;
+  font-weight: 700;
+}
+
+.signup-form__new-group {
+  border-bottom: 2px solid #D8D8D8;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  padding: 10px 7px;
+  font-family: "lato", sans-serif;
+  color: #0035BB;
+}
+
+.signup-form__new-group--emphasis {
+  font-weight: 700;
+  border: none;
+}
+
+.signup-form__textarea {
+  width: 100%;
+  border: 2px solid #D8D8D8;
+  border-radius: 2px;
+  margin: 10px 0;
+  padding: 6px;
+  font-size: 1rem;
+}
+
+.signup-form__submit {
+  color: #0035BB;
+  font-family: "lato", sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-decoration: none;
+  position: absolute;
+  bottom: 16px;
+}
+
+.signup-form__distance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "lato", sans-serif;
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.signup-form__deadline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: "lato", sans-serif;
+  font-size: 1rem;
+}
+
+.signup-form__label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.signup-form__distance-label {
+  margin: 16px;
+  font-weight: 900;
+}
+
+.signup-form__deadline-label {
+  margin: 16px;
+  font-weight: 900;
+}
+
+.signup-form__distance-value {
+  margin: 16px;
+  color: #4A4A4A;
+}
+
+.signup-form__medal {
+  height: 50px;
+}
+
+* {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -56,5 +215,9 @@
   padding: 12px;
   background-color: #fa4e1f;
   border-radius: 2px;
+}
+
+.logo-blue {
+  height: 30px;
 }
 
