@@ -1,6 +1,10 @@
-@import "base/fonts";
-
 @import "helpers/mixins";
 @import "helpers/variables";
 
+@import "base/fonts";
+@import "base/main";
+
+@import "components/signup-form";
+
 @import "layouts/login";
+@import "layouts/signup";
