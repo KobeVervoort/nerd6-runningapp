@@ -30,36 +30,44 @@ class ActivitiesController extends Controller
         return view('activities')->with(compact('activities', 'bestRun'));
     }
 
-    public function allUsersActivities()
+    public function lastUsersActivities()
     {
-        // Get all activities except for the logged in user
-        $allUsersActivities = Activity::all()->where('userId', '!=' , auth()->user()->id);
+        // Get all last activities
+        $lastActivities = Activity::orderBy('endDate', 'desc')->get();
 
-        return $allUsersActivities;
+        return $lastActivities;
+    }
+
+    public function lastFiveUsersActivities()
+    {
+        // Get all last activities
+        $lastActivities = Activity::orderBy('endDate', 'desc')->take(5)->get();
+
+        return $lastActivities;
     }
 
     public function lastLoggedInActivities()
     {
         // Get all activities except for the logged in user
-        $lastLoggedInActivities = Activity::all()->where('userId', '=' , auth()->user()->id)->first();
+        $lastLoggedInActivities = Activity::orderBy('endDate', 'desc')->get()->where('userId', '=' , auth()->user()->id);
 
         return $lastLoggedInActivities;
     }
 
-    public function allLoggedInActivities()
+    public function lastFiveLoggedInActivities()
     {
         // Get all activities except for the logged in user
-        $allLoggedInActivities = Activity::orderBy('endDate', 'desc')->get()->where('userId', '=' , auth()->user()->id);
+        $lastFiveLoggedInActivities = Activity::orderBy('endDate', 'desc')->take(5)->get()->where('userId', '=' , auth()->user()->id);
 
-        return $allLoggedInActivities;
+        return $lastFiveLoggedInActivities;
     }
 
     public function allUserDistances()
     {
         // Get all activities from a user
-        $distances = UserDistance::all();
+        $allUserdistances = UserDistance::all();
 
-        return $distances;
+        return $allUserdistances;
     }
 
     public function totalUserDistance($id)
@@ -78,11 +86,35 @@ class ActivitiesController extends Controller
         return $totalUsersDistance;
     }
 
-    public function TopWeeklyRunners()
+    public function topWeeklyRunners()
+    {
+        // Get all weekly distances from users and sort them
+        $topWeeklyRunners = UserDistance::orderBy('weeklyDistance', 'desc')->get();
+
+        return $topWeeklyRunners;
+    }
+
+    public function topWeeklyFiveRunners()
     {
         // Get all weekly distances from users, sort them and return the best 5
-        $users = UserDistance::orderBy('weeklyDistance', 'desc')->take(5)->get();
+        $topWeeklyFiveRunners = UserDistance::orderBy('weeklyDistance', 'desc')->take(5)->get();
 
-        return $users;
+        return $topWeeklyFiveRunners;
     }
+
+    public function group() {
+
+        $topWeeklyFiveRunners = $this->topWeeklyFiveRunners();
+        $latestActivity = $this->lastUsersActivities();
+        $totalUsersDistance = $this->totalUsersDistance();
+
+        return view('activities')->with(compact('topWeeklyFiveRunners', 'latestActivity', 'totalUsersDistance'));
+    }
+
+    public function myProgress() {
+
+        
+
+    }
+
 }
