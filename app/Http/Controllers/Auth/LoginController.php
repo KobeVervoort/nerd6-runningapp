@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Group;
 use App\Http\Controllers\Controller;
 use App\User;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class LoginController extends Controller
@@ -44,7 +47,7 @@ class LoginController extends Controller
     {
         // If you are already logged in, redirect!
         if(Auth::user()){
-            return redirect('/dashboard');
+            return redirect('/myProgress');
         } else {
             // You are not logged in, so log in!
             return view('login/login');
@@ -113,7 +116,94 @@ class LoginController extends Controller
         } else {
             auth()->login($user);
 
-            return redirect('/group');
+            return redirect('/myProgress');
         }
     }
+
+    public function signup()
+    {
+        if(auth()->user()->group_id == '')
+        {
+            return view('login/signup');
+        }
+        else
+        {
+            return redirect('/myProgress');
+        }
+
+    }
+
+    public function groups(\Illuminate\Http\Request $request)
+    {
+        $term = $request->searchTerm;
+
+        if(!empty($term))
+        {
+            return Group::where('name', 'like', '%'.$term.'%')->get();
+        }
+        else
+        {
+            return '';
+        }
+
+    }
+
+    public function groupDetails(\Illuminate\Http\Request $request)
+    {
+        return Group::where('id', $request->groupID)->first();
+    }
+
+    public function addToExistingGroup(\Illuminate\Http\Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+        $user->group_id = $request->groupID;
+        $user->save();
+
+        return 'Ok';
+    }
+
+    public function addToNewGroup(\Illuminate\Http\Request $request)
+    {
+        $group = new Group;
+
+        $group->name = $request->name;
+        $group->description = $request->description;
+        $group->target_distance = $request->target;
+        $group->end_date = $request->deadline;
+
+        $group->save();
+
+        $user = User::find(auth()->user()->id);
+        $user->group_id = $group->id;
+        $user->save();
+
+        return 'Ok';
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

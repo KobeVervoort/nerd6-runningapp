@@ -1,0 +1,61 @@
+.header
+  +modifier('blue')
+    height: 240px
+    background: $blue url("#{$asset_path}/img/routes.png")
+    background-repeat: no-repeat
+    background-size: cover
+
+.nav
+  width: 100%
+  font-family: $lato
+  top: 0
+  box-sizing: border-box
+  height: 77px
+
+  +element('link')
+    font-weight: $light
+    text-transform: uppercase
+    color: $gray
+    padding-bottom: 7px
+    text-decoration: none
+    letter-spacing: -0.5px
+    z-index: 1
+
+    +modifier('blue')
+      color: $lightBlue
+
+    +modifier('active')
+      color: $blue
+      border-bottom: 3px solid $blue
+
+    +modifier('active-blue')
+      color: white
+      border-bottom: 3px solid white
+
+.nav-top
+  display: flex
+  justify-content: space-between
+  margin-bottom: 16px
+
+.my-profile-link
+
+  +element('image')
+    width: 30px
+    height: 30px
+    border-radius: 2px
+
+.nav-bottom
+  display: inline-flex
+  justify-content: space-between
+  width: 100%
+
+  +element('underline')
+    width: 100%
+    height: 3px
+    background-color: $gray
+    position: relative
+    top: -3px
+    z-index: 0
+
+    +modifier('blue')
+      background-color: $lightBlue

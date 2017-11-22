@@ -11,13 +11,7 @@
 </head>
 <body>
 
-    <header class="header">
-
-        @include('shared.nav')
-
-        @yield('header-info')
-
-    </header>
+    @yield('header')
 
     <div class="main">
 
@@ -25,7 +19,6 @@
 
     </div>
 
-    @include('shared.footer')
 
 </body>
 </html>

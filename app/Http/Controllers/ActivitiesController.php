@@ -27,7 +27,7 @@ class ActivitiesController extends Controller
         $bestRun = Activity::with('distance')->where('userId', auth()->user()->id)->max('distance');
 
         // return the view with parameter activities to show on screen
-        return view('activities')->with(compact('activities', 'bestRun'));
+        return view('myProgress')->with(compact('activities', 'bestRun'));
     }
 
     public function lastActivitiesUsers()
@@ -136,7 +136,8 @@ class ActivitiesController extends Controller
         $latestActivities = $this->lastActivitiesUsers();
         $totalDistanceUsers = $this->totalDistanceUsers();
 
-        return view('activities')->with(compact('topWeeklyFiveRunners', 'latestActivities', 'totalDistanceUsers'));
+        return view('group')->with(compact('topWeeklyFiveRunners', 'latestActivity', 'totalUsersDistance'));
+
     }
 
     public function myProgress() {

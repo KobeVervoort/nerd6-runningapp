@@ -1,0 +1,103 @@
+.signup-form
+  margin-top: 16px
+
+  +element('input')
+    width: 100%
+    border: none
+    border-radius: 2px
+    background: $blue url("#{$asset_path}/img/routes.png")
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: 0 30%
+    padding: 10px 8px
+    font-size: 1rem
+    color: white
+    &::placeholder
+      color: white
+
+    +modifier('padded')
+      margin-bottom: 10px
+
+  +element('group-list')
+    border-right: 2px solid $gray
+    border-left: 2px solid $gray
+
+  +element('group')
+    padding: 10px 7px
+    font-family: $lato
+    border-bottom: 2px solid $gray
+    font-weight: $bold
+
+  +element('new-group')
+    border-bottom: 2px solid $gray
+    border-bottom-left-radius: 2px
+    border-bottom-right-radius: 2px
+    padding: 10px 7px
+    font-family: $lato
+    color: $blue
+
+    +modifier('emphasis')
+      font-weight: $bold
+      border: none
+
+  +element('textarea')
+    width: 100%
+    border: 2px solid $gray
+    border-radius: 2px
+    margin: 10px 0
+    padding: 6px
+    font-size: 1rem
+
+  +element('submit')
+    color: $blue
+    font-family: $lato
+    font-weight: $black
+    font-size: 1.5rem
+    text-decoration: none
+    position: absolute
+    bottom: 16px
+
+  +element('distance')
+    display: flex
+    justify-content: space-between
+    font-family: $lato
+    font-size: 1rem
+    margin-top: 10px
+    margin-bottom: 10px
+
+  +element('deadline')
+    display: flex
+    justify-content: space-between
+    font-family: $lato
+    font-size: 1rem
+
+  +element('label')
+    display: flex
+
+  +element('distance-label')
+    margin: 16px
+    font-weight: $black
+
+  +element('deadline-label')
+    margin: 16px
+    font-weight: $black
+
+  +element('distance-value')
+    margin: 16px
+    color: $dark-gray
+
+  +element('medal')
+    height: 50px
+
+
+
+
+
+
+
+
+
+
+
+
+

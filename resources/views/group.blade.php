@@ -1,5 +1,15 @@
 @extends ('layout')
 
+@section ('header')
+
+    <div class="header">
+
+        @include('shared.nav')
+
+    </div>
+
+@endsection
+
 @section ('content')
 
     <div class="container">

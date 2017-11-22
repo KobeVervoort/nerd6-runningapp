@@ -1,16 +1,20 @@
 @extends ('layout')
 
-@section ('header-info')
+@section ('header')
 
-    <h1 class="progress">{{number_format($bestRun/1000, 2, '.', '')}}km / 16km</h1>
+    <div class="header header--blue">
 
-    <div class="full-progress-bar"></div>
+        @include('shared.nav-blue')
 
-    <div class="my-progress-bar" style ="{{$bestRun < 200 ? "visibility: hidden" : 'width: ' . ($bestRun/16000)*100 . '%; visibility: visible'}}"></div>
+        <h1 class="title title--white">This Week's Goals</h1>
+
+    </div>
 
 @endsection
 
 @section ('content')
+
+    <h1 class="title">My Runs</h1>
 
     @foreach($activities as $activity)
 
@@ -33,5 +37,7 @@
         </div>
 
     @endforeach
+
+    <h1 class="title">Weekly Summaries</h1>
 
 @endsection
