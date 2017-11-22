@@ -113,7 +113,7 @@ class LoginController extends Controller
         } else {
             auth()->login($user);
 
-            return redirect('/dashboard');
+            return redirect('/group');
         }
     }
 }
