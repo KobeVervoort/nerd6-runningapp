@@ -8,6 +8,53 @@ use Illuminate\Support\Facades\DB;
 
 abstract class StravaHandler extends Model
 {
+    public static function makeInitialSchedule($activity, $user, $group)
+    {
+        $endDate = Carbon::parse($group->end_date);
+        $firstRunDate = Carbon::parse($activity->endDate);
+        \Log::info('first run date = ' . $firstRunDate);
+
+        $remainingTime = $endDate->diffInDays($firstRunDate);
+
+
+
+        $weeksLeft = floor($remainingTime/7);
+
+        \Log::info('weeks left = ' . $weeksLeft);
+
+
+        for ($i = 0; $i<$weeksLeft; $i++)
+        {
+            $startDate = clone $firstRunDate;
+            $startDate = $startDate->addDays(7*$i)->startOfDay();
+            \Log::info('start date = ' . $startDate);
+            $endDate = clone $startDate;
+            $endDate = $endDate->addDays(7);
+            \Log::info('end date = ' . $endDate);
+            \Log::info('start date #2 = ' . $startDate);
+
+            $schedule = new Schedule;
+            $schedule->user_id = $user->id;
+            $schedule->week = $i+1;
+            $schedule->start_date = $startDate;
+            $schedule->end_date = $endDate;
+            $schedule->distance_goal = $group->target_distance;
+            if($i == 0)
+            {
+                $schedule->distance_reached = $activity->distance;
+                $schedule->frequency_reached = 1;
+            } else
+            {
+                $schedule->distance_reached = 0;
+                $schedule->frequency_reached = 0;
+            }
+            $schedule->frequency_goal = 3;
+            $schedule->save();
+            \Log::info('Current Activity = ' . $activity->id);
+        }
+
+    }
+
     public static function handleApiRequestAllActivities()
     {
 
@@ -15,9 +62,14 @@ abstract class StravaHandler extends Model
         $users = User::all();
 
         foreach ($users as $user) {
+            \Log::info('Activities amount #1 = ' . Activity::where('userId', $user->id)->count());
 
             // Get token from user
             $token = $user->token;
+
+            // Get a user's group
+            $group = Group::where('id', $user->group_id)->get()->first();
+
 
             // Request the Strava API and get the athlete activities
             $client = new \GuzzleHttp\Client();
@@ -39,8 +91,12 @@ abstract class StravaHandler extends Model
                 if ($activityId === null) {
                     $activity = new Activity;
 
+                    // Calculate startDate and endDate of a result
+                    $startDate = new \DateTime($result->start_date);
+                    $endDate = $startDate->add(new \DateInterval('PT' . $result->elapsed_time . 'S'));
+
                     // Check if the activity is a run
-                    if ($activity->averageSpeed <= 20) {
+                    if ($result->average_speed <= 20 && $endDate >= $group->created_at) {
 
                         $activity->name = $result->name;
                         $activity->activityId = $result->id;
@@ -53,8 +109,22 @@ abstract class StravaHandler extends Model
                         $activity->elapsedTime = $result->elapsed_time;
                         $activity->averageSpeed = $result->average_speed;
 
+                        \Log::info('Activities amount #2 = ' . Activity::where('userId', $user->id)->count());
+
+                        if(Activity::where('userId', $user->id)->count() == 0)
+                        {
+                            // make new schedule
+                            self::makeInitialSchedule($activity, $user, $group);
+                        } else
+                        {
+                            // update schedule
+                        }
+
                         // save these variables in the database activities
                         $activity->save();
+
+                        // Check if this is a user's first activity, if so make a new schedule
+
                     }
                 }
             }
