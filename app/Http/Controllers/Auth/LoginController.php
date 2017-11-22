@@ -75,8 +75,8 @@ class LoginController extends Controller
         $client = new \GuzzleHttp\Client();
         $res = $client->request( 'POST', 'https://www.strava.com/oauth/token', [
             'form_params' => [
-                'client_id' => '20719',
-                'client_secret' => '4c169a3a25c1af00cf2d12f3ff931c4c7c143591',
+                'client_id' => env('STRAVA_CLIENT_ID'),
+                'client_secret' => env('STRAVA_CLIENT_SECRET'),
                 'code'=> $code,
             ]
 
