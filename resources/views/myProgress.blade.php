@@ -6,11 +6,15 @@
 
         @include('shared.nav-blue')
 
+        <h1 class="title title--white">This Week's Goals</h1>
+
     </div>
 
 @endsection
 
 @section ('content')
+
+    <h1 class="title">My Runs</h1>
 
     @foreach($activities as $activity)
 
@@ -33,5 +37,7 @@
         </div>
 
     @endforeach
+
+    <h1 class="title">Weekly Summaries</h1>
 
 @endsection

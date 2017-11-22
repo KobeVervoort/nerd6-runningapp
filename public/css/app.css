@@ -15,6 +15,10 @@
   margin-top: 16px;
 }
 
+.title--white {
+  color: white;
+}
+
 .normal-text {
   font-family: "lato", sans-serif;
   line-height: 1.4rem;
