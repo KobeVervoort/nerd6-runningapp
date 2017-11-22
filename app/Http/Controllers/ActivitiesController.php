@@ -18,7 +18,7 @@ class ActivitiesController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function runActivitiesLoggedInUser()
+    public function runActivitiesLoggedIn()
     {
 
         $activities = Activity::all()->where('userId', auth()->user()->id);
@@ -30,7 +30,7 @@ class ActivitiesController extends Controller
         return view('myProgress')->with(compact('activities', 'bestRun'));
     }
 
-    public function lastUsersActivities()
+    public function lastActivitiesUsers()
     {
         // Get all last activities
         $lastActivities = Activity::orderBy('endDate', 'desc')->get();
@@ -46,7 +46,7 @@ class ActivitiesController extends Controller
         return $lastActivities;
     }
 
-    public function lastLoggedInActivities()
+    public function lastActivitiesLoggedIn()
     {
         // Get all activities except for the logged in user
         $lastLoggedInActivities = Activity::orderBy('endDate', 'desc')->get()->where('userId', '=' , auth()->user()->id);
@@ -54,7 +54,7 @@ class ActivitiesController extends Controller
         return $lastLoggedInActivities;
     }
 
-    public function lastFiveLoggedInActivities()
+    public function lastFiveActivitiesLoggedIn()
     {
         // Get all activities except for the logged in user
         $lastFiveLoggedInActivities = Activity::orderBy('endDate', 'desc')->take(5)->get()->where('userId', '=' , auth()->user()->id);
@@ -62,7 +62,7 @@ class ActivitiesController extends Controller
         return $lastFiveLoggedInActivities;
     }
 
-    public function allUserDistances()
+    public function allDistancesUser()
     {
         // Get all activities from a user
         $allUserdistances = UserDistance::all();
@@ -70,7 +70,7 @@ class ActivitiesController extends Controller
         return $allUserdistances;
     }
 
-    public function totalUserDistance($id)
+    public function totalDistanceUser($id)
     {
         // Fetch total distance from a user
         $totalUserDistance = UserDistance::find($id);
@@ -78,7 +78,7 @@ class ActivitiesController extends Controller
         return $totalUserDistance;
     }
 
-    public function totalUsersDistance()
+    public function totalDistanceUsers()
     {
         // Fetch total distance from all users
         $totalUsersDistance = UserDistance::all()->sum('totalDistance');
@@ -102,19 +102,62 @@ class ActivitiesController extends Controller
         return $topWeeklyFiveRunners;
     }
 
+    public function longestRunLoggedIn() {
+
+        $longestRunLoggedIn = Activity::orderBy('distance', 'desc')->get()->where('userId', '=' , auth()->user()->id)->first();
+
+        return $longestRunLoggedIn;
+    }
+
+    public function averageSpeedLoggedIn() {
+
+        $averageSpeedLoggedIn = Activity::all()->where('userId', '=' , auth()->user()->id)->avg('averageSpeed');
+
+        return $averageSpeedLoggedIn;
+    }
+
+    public function totalAchievementsLoggedIn() {
+
+        $totalAchievementsLoggedIn = Achievement::where('user_id', '=' , auth()->user()->id)->count();
+
+        return $totalAchievementsLoggedIn;
+    }
+
+    public function bestRunLoggedIn() {
+
+        $bestRunLoggedIn = Activity::orderBy('elapsedTime', 'desc')->get()->where('userId', '=' , auth()->user()->id)->first();
+
+        return $bestRunLoggedIn;
+    }
+
     public function group() {
 
         $topWeeklyFiveRunners = $this->topWeeklyFiveRunners();
-        $latestActivity = $this->lastUsersActivities();
-        $totalUsersDistance = $this->totalUsersDistance();
+        $latestActivities = $this->lastActivitiesUsers();
+        $totalDistanceUsers = $this->totalDistanceUsers();
 
+<<<<<<< HEAD
         return view('group')->with(compact('topWeeklyFiveRunners', 'latestActivity', 'totalUsersDistance'));
+=======
+        return view('activities')->with(compact('topWeeklyFiveRunners', 'latestActivities', 'totalDistanceUsers'));
+>>>>>>> 52dd7973b1555427bcb3096e59573f6103cff367
     }
 
     public function myProgress() {
 
-        
+        $lastActivitiesLoggedIn = $this->lastActivitiesLoggedIn();
 
+        return view('activities')->with(compact('lastActivitiesLoggedIn'));
+    }
+
+    public function achievements() {
+
+        $longestRunLoggedIn = $this->longestLoggedInRun();
+        $averageSpeedLoggedIn = $this->averageSpeedLoggedIn();
+        $totalAchievementsLoggedIn = $this->totalAchievementsLoggedIn();
+        $bestRunLoggedIn = $this->bestRunLoggedIn(); // longest run ATM
+
+        return view('activities')->with(compact('longestRunLoggedIn', 'averageSpeedLoggedIn', 'totalAchievementsLoggedIn', 'bestRunLoggedIn'));
     }
 
 }
