@@ -12,37 +12,76 @@
 
 @section ('content')
 
+
+
     <div class="container">
 
-        @if(empty($activities))
+    <h1 class="title">Top Runners</h1> <!--topWeekleFiveRunners-->
 
-            <p>No other activities found.</p>
+        @if(1 != 1)
+
+            <p>No one in your group has run yet.</p>
 
         @else
 
-            @foreach($activities as $activity)
+            @foreach($topWeeklyFiveRunners as $key => $runner)
 
-                <div class="activity">
-
-                    <div class="activity-info">
-                        <div class="user-info">
-                            <img src="{{$activity->user->avatar}}" alt="" class="user-info__avatar">
-                            <p class="user-info__name">{{$activity->user->firstname . ' ' . $activity->user->lastname}}</p>
-                        </div>
-                        <p class="activity-info__date">{{$activity->endDate->diffForHumans()}}</p>
-                    </div>
-
-                    <div class="activity-data">
-                        <h2 class="activity-data__name">{{ $activity->name }}</h2>
-                        <p class="activity-data__metric">Distance: {{ number_format($activity->distance/1000, 2, '.', '' )}} km</p>
-                        <p class="activity-data__metric">Speed: {{ number_format($activity->averageSpeed * 3.6, 2, '.', '') }} km/h</p>
-                    </div>
-
+                <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
+                    <p><!-- Number of rank--> {{ $key+1 }}</p>
+                    <img src="{{ $runner->user->avatar }}" style="height: 50px; width: 50px;"/>
+                    <p>{{ $runner->user->firstname . " " . $runner->user->lastname }}</p>
+                    <p>{{ round($runner->weeklyDistance / 1000, 2) }} km</p>
                 </div>
 
             @endforeach
 
         @endif
+
+    <h1 class="title">Latest Runs</h1>
+
+        @if(1 != 1)
+
+            <p>No one in your group has run yet.</p>
+
+        @else
+
+            <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
+
+                <img src="{{ $lastActivityUsers->user->avatar }}" style="height: 50px; width: 50px;" alt="Profile picture of {{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}">
+                <p>{{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}</p>
+                <p>{{$lastActivityUsers->endDate->diffForHumans()}}</p><!-- Time ago-->
+
+            </div>
+            <p>{{ $lastActivityUsers->name }}</p>
+            <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-between">
+
+                <div><!-- distance -->
+                    <p>Distance</p>
+                    <p>{{ $lastActivityUsers->distance / 1000 . "km" }}</p>
+                </div>
+                <div><!-- pace -->
+                    <p>Pace</p>
+                    <p>{{ $lastActivityUsers->averageSpeed . "km/u"}}</p>
+                </div>
+                <div><!-- time -->
+                    <p>Time</p>
+                    <p>{{ $lastActivityUsers->elapsedTime }}</p><!-- in seconden! -->
+                </div>
+
+            </div>
+
+
+        @endif
+
+
+    <h1 class="title">Total Run</h1> totalDistancesUsers
+
+        <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
+
+            <p>{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
+            <p>Insert inspiring quote</p>
+
+        </div>
 
     </div>
 
