@@ -65,7 +65,7 @@ class LoginController extends Controller
     public function redirectToProvider()
     {
 
-        return redirect("https://www.strava.com/oauth/authorize?client_id=20719&response_type=code&redirect_uri=http://homestead.app//oauth/code_callback&scope=write&state=mystate");
+        return redirect("https://www.strava.com/oauth/authorize?client_id=20719&response_type=code&redirect_uri=" . env('STRAVA_CALLBACK_DOMAIN') . "/oauth/code_callback&scope=write&state=mystate");
 
     }
 
@@ -168,7 +168,7 @@ class LoginController extends Controller
 
         $group->name = $request->name;
         $group->description = $request->description;
-        $group->target_distance = $request->target;
+        $group->target_distance = $request->target * 1000;
         $group->end_date = $request->deadline;
 
         $group->save();
