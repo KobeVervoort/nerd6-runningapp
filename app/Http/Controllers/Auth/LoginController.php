@@ -47,7 +47,7 @@ class LoginController extends Controller
     {
         // If you are already logged in, redirect!
         if(Auth::user()){
-            return redirect('/dashboard');
+            return redirect('/myProgress');
         } else {
             // You are not logged in, so log in!
             return view('login/login');
@@ -116,13 +116,21 @@ class LoginController extends Controller
         } else {
             auth()->login($user);
 
-            return redirect('/dashboard');
+            return redirect('/myProgress');
         }
     }
 
     public function signup()
     {
-        return view('login/signup');
+        if(auth()->user()->group_id == '')
+        {
+            return view('login/signup');
+        }
+        else
+        {
+            return redirect('/myProgress');
+        }
+
     }
 
     public function groups(\Illuminate\Http\Request $request)

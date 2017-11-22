@@ -12351,7 +12351,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addExistingGroup: function addExistingGroup() {
             axios.post('/signup/existingGroup', {
                 groupID: this.groupDetails.id
-            }).then(window.location = '/dashboard');
+            }).then(window.location = '/myProgress');
         },
         addNewGroup: function addNewGroup() {
             axios.post('signup/newGroup', {
@@ -12359,7 +12359,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 description: this.newDescription,
                 target: this.newTarget,
                 deadline: this.newDeadline
-            }).then(window.location = '/dashboard');
+            }).then(window.location = '/myProgress');
         }
     }
 

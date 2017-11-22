@@ -1,18 +1,21 @@
 <nav class="nav">
 
-    <!--<a href="/dashboard" class="logo">Nerd Running</a>
+    <div class="nav-top">
+        <img src="/img/logo-blue.png" alt="" class="logo-small">
 
-    <a href="/myactivities" class="nav__link">My activities</a>-->
+        <a href="" class="my-profile-link">
 
-    <a href="/dashboard" class="nav__link {{Request::is('dashboard') ? 'nav__link--active' : ''}} nav__link--left">dashboard</a>
-    <a href="/myactivities" class="nav__link {{Request::is('myactivities') ? 'nav__link--active' : ''}} nav__link--right">my progress</a>
+            <img src="{{$authUser->avatar}}" alt="" class="my-profile-link__image">
 
-    <a href="" class="my-profile-link">
+        </a>
+    </div>
 
-        <p class="my-profile-link__name">{{$authUser->firstname}}</p>
+    <div class="nav-bottom">
+        <a href="/myProgress" class="nav__link {{Request::is('myProgress') ? 'nav__link--active' : ''}}">My Progress</a>
+        <a href="/group" class="nav__link {{Request::is('group') ? 'nav__link--active' : ''}}">Group</a>
+        <a href="/achievements" class="nav__link {{Request::is('achievements') ? 'nav__link--active' : ''}}">Achievements</a>
+    </div>
 
-        <img src="{{$authUser->avatar}}" alt="" class="my-profile-link__image">
-
-    </a>
+    <div class="nav-bottom__underline"></div>
 
 </nav>

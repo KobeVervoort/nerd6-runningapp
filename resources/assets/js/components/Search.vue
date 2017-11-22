@@ -101,7 +101,7 @@
             addExistingGroup(){
                 axios.post('/signup/existingGroup', {
                     groupID: this.groupDetails.id
-                }).then(window.location = '/dashboard')
+                }).then(window.location = '/myProgress')
             },
 
             addNewGroup(){
@@ -110,7 +110,7 @@
                     description: this.newDescription,
                     target: this.newTarget,
                     deadline: this.newDeadline
-                }).then(window.location='/dashboard')
+                }).then(window.location='/myProgress')
             }
         },
 

@@ -12,7 +12,7 @@
 <body>
 
     <header class="header">
-        <img src="/img/logo-blue.png" alt="Extra Mile Logo" class="logo-blue">
+        <img src="/img/logo-blue.png" alt="Extra Mile Logo" class="logo-small">
     </header>
 
     <div id="form" class="main">
