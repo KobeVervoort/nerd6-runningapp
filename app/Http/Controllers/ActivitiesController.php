@@ -136,11 +136,8 @@ class ActivitiesController extends Controller
         $latestActivities = $this->lastActivitiesUsers();
         $totalDistanceUsers = $this->totalDistanceUsers();
 
-<<<<<<< HEAD
         return view('group')->with(compact('topWeeklyFiveRunners', 'latestActivity', 'totalUsersDistance'));
-=======
-        return view('activities')->with(compact('topWeeklyFiveRunners', 'latestActivities', 'totalDistanceUsers'));
->>>>>>> 52dd7973b1555427bcb3096e59573f6103cff367
+
     }
 
     public function myProgress() {
