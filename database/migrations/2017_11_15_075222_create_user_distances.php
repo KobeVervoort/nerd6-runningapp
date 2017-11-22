@@ -16,7 +16,8 @@ class CreateUserDistances extends Migration
         Schema::create('user_distances', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('userId');
+            $table->integer('userId')->unsigned();
+            $table->foreign('userId')->references('id')->on('users');
             $table->integer('weeklyDistance');
             $table->integer('totalDistance');
             $table->timestamps();

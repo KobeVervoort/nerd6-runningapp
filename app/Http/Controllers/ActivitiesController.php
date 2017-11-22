@@ -38,6 +38,14 @@ class ActivitiesController extends Controller
         return $lastActivities;
     }
 
+    public function lastActivityUsers()
+    {
+        // Get all last activities
+        $lastActivityUsers = Activity::orderBy('endDate', 'desc')->get()->first();
+
+        return $lastActivityUsers;
+    }
+
     public function lastFiveUsersActivities()
     {
         // Get all last activities
@@ -133,10 +141,10 @@ class ActivitiesController extends Controller
     public function group() {
 
         $topWeeklyFiveRunners = $this->topWeeklyFiveRunners();
-        $latestActivities = $this->lastActivitiesUsers();
+        $lastActivityUsers = $this->lastActivityUsers();
         $totalDistanceUsers = $this->totalDistanceUsers();
 
-        return view('group')->with(compact('topWeeklyFiveRunners', 'latestActivity', 'totalUsersDistance'));
+        return view('group')->with(compact('topWeeklyFiveRunners', 'lastActivityUsers', 'totalDistanceUsers'));
 
     }
 
@@ -144,7 +152,7 @@ class ActivitiesController extends Controller
 
         $lastActivitiesLoggedIn = $this->lastActivitiesLoggedIn();
 
-        return view('activities')->with(compact('lastActivitiesLoggedIn'));
+        return view('myProgress')->with(compact('lastActivitiesLoggedIn'));
     }
 
     public function achievements() {
