@@ -1,5 +1,5 @@
 <template>
-    <form action="" class="signup-form">
+    <form action="" class="signup-form" autocomplete="off">
 
         <input type="text" name="group" placeholder="Search for groups" v-on:keyup = 'getGroups' v-model="input" class="signup-form__input">
 

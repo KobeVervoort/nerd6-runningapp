@@ -39,7 +39,7 @@
 
     <h1 class="title">Latest Runs</h1>
 
-        @if(1 != 1)
+        @if($lastActivityUsers->isEmpty())
 
             <p>No one in your group has run yet.</p>
 
@@ -73,13 +73,10 @@
 
         @endif
 
+        <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-between;text-align: center;">
 
-    <h1 class="title">Total Run</h1> totalDistancesUsers
-
-        <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
-
-            <p>{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
-            <p>Insert inspiring quote</p>
+            <p style="flex-basis: 40%;">{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
+            <p style="flex-basis: 40%;">Insert inspiring quote</p>
 
         </div>
 
