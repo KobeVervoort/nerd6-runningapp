@@ -12,8 +12,6 @@
 
 @section ('content')
 
-
-
     <div class="container">
 
     <h1 class="title">Top Runners</h1> <!--topWeekleFiveRunners-->
@@ -24,16 +22,20 @@
 
         @else
 
-            @foreach($topWeeklyFiveRunners as $key => $runner)
+            <ul class="user-list">
+                @foreach($topWeeklyFiveRunners as $key => $runner)
 
-                <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
-                    <p><!-- Number of rank--> {{ $key+1 }}</p>
-                    <img src="{{ $runner->user->avatar }}" style="height: 50px; width: 50px;"/>
-                    <p>{{ $runner->user->firstname . " " . $runner->user->lastname }}</p>
-                    <p>{{ round($runner->weeklyDistance / 1000, 2) }} km</p>
-                </div>
+                    <li class="user-list__item">
+                        <div class="user-list__user-info {{$key === 0 ? "user-list__user-info--first" : ""}}">
+                            <p class="user-list__rank"><!-- Number of rank--> {{ $key+1 }}</p>
+                            <img src="{{ $runner->user->avatar }}" class="user-list__avatar"/>
+                            <p class="user-list__name">{{ $runner->user->firstname . " " . $runner->user->lastname }}</p>
+                        </div>
+                        <p class="user-list__distance {{$key === 0 ? "user-list__distance--first" : ""}}">{{ round($runner->weeklyDistance / 1000, 2) }} km</p>
+                    </li>
 
-            @endforeach
+                @endforeach
+            </ul>
 
         @endif
 
