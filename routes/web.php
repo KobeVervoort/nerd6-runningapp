@@ -24,9 +24,11 @@ Route::get('/', 'Auth\LoginController@login')->name('login');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/myProgress', 'ActivitiesController@myProgress');
     Route::get('/group', 'ActivitiesController@group');
+    Route::get('/achievements', 'ActivitiesController@achievements');
     Route::get('/logout', 'Auth\LoginController@destroy');
     Route::get('/profile', 'UsersController@information');
     Route::get('/signup', 'Auth\LoginController@signup');
+    Route::get('/achievements', 'AchievementsController@showLoggedIn');
     Route::post('/signup/groups', 'Auth\LoginController@groups');
     Route::post('/signup/existingGroup', 'Auth\LoginController@addToExistingGroup');
     Route::post('/signup/newGroup', 'Auth\LoginController@addToNewGroup');

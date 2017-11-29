@@ -16,7 +16,7 @@
 
     <h1 class="title">My Runs</h1>
 
-    @if(isset($lastActivitiesLoggedIn))
+    @if($lastActivitiesLoggedIn->isEmpty())
         <p>You haven't run in the last week.</p>
     @else
 

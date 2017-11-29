@@ -131,6 +131,13 @@ class ActivitiesController extends Controller
         return $totalAchievementsLoggedIn;
     }
 
+    public function achievementsLoggedIn() {
+
+        $achievementsLoggedIn = Achievement::orderBy('updated_at', 'desc')->get()->where('user_id', '=' , auth()->user()->id);
+
+        return $achievementsLoggedIn;
+    }
+
     public function bestRunLoggedIn() {
 
         $bestRunLoggedIn = Activity::orderBy('elapsedTime', 'desc')->get()->where('userId', '=' , auth()->user()->id)->first();
@@ -160,9 +167,9 @@ class ActivitiesController extends Controller
         $longestRunLoggedIn = $this->longestLoggedInRun();
         $averageSpeedLoggedIn = $this->averageSpeedLoggedIn();
         $totalAchievementsLoggedIn = $this->totalAchievementsLoggedIn();
-        $bestRunLoggedIn = $this->bestRunLoggedIn(); // longest run ATM
+        $achievementsLoggedIn = $this->achievementsLoggedIn(); // longest run ATM
 
-        return view('activities')->with(compact('longestRunLoggedIn', 'averageSpeedLoggedIn', 'totalAchievementsLoggedIn', 'bestRunLoggedIn'));
+        return view('achievements')->with(compact('longestRunLoggedIn', 'averageSpeedLoggedIn', 'totalAchievementsLoggedIn', 'achievementsLoggedIn'));
     }
 
 }
