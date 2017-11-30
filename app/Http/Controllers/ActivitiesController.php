@@ -150,9 +150,15 @@ class ActivitiesController extends Controller
 
     public function myProgress() {
 
-        $lastActivitiesLoggedIn = $this->lastActivitiesLoggedIn();
+        if(empty(auth()->user()->group_id))
+        {
+            return redirect('/signup');
+        } else
+        {
+            $lastActivitiesLoggedIn = $this->lastActivitiesLoggedIn();
 
-        return view('myProgress')->with(compact('lastActivitiesLoggedIn'));
+            return view('myProgress')->with(compact('lastActivitiesLoggedIn'));
+        }
     }
 
     public function achievements() {

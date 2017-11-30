@@ -1,7 +1,7 @@
 <template>
     <form action="" class="signup-form">
 
-        <input type="text" name="group" placeholder="Search for groups" v-on:keyup = 'getGroups' v-model="input" class="signup-form__input">
+        <input type="text" name="group" placeholder="Search for groups" v-on:keyup = 'getGroups' v-model="input" class="signup-form__input" autocomplete="off">
 
         <ul v-if="this.isDisabled == false" class="signup-form__group-list">
 
@@ -9,7 +9,7 @@
                 {{group.name}}
             </li>
 
-            <li v-if="this.input!=''" class="signup-form__new-group" v-on:click = "newChosen = true">
+            <li v-if="this.input!=''" class="signup-form__new-group" v-on:click = "selectNew()">
                 Create new group
                 <span class="signup-form__new-group signup-form__new-group--emphasis">
                     {{this.input}}
@@ -31,7 +31,7 @@
                     <img class="signup-form__medal" src="/img/medal-run-blue.png" alt="">
                     <p class="signup-form__distance-label">Target Distance</p>
                 </div>
-                <p class="signup-form__distance-value">{{groupDetails.target_distance}}km</p>
+                <p class="signup-form__distance-value">{{groupDetails.target_distance/1000}}km</p>
             </div>
 
             <div class="signup-form__deadline">
@@ -96,6 +96,11 @@
                 this.isDisabled = true;
                 this.existingChosen = true;
                 this.groupDetails = this.groups[id];
+            },
+
+            selectNew(){
+                this.newChosen = true;
+                this.isDisabled = true;
             },
 
             addExistingGroup(){

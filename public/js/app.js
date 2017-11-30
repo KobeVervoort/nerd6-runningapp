@@ -11262,6 +11262,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.existingChosen = true;
             this.groupDetails = this.groups[id];
         },
+        selectNew: function selectNew() {
+            this.newChosen = true;
+            this.isDisabled = true;
+        },
         addExistingGroup: function addExistingGroup() {
             axios.post('/signup/existingGroup', {
                 groupID: this.groupDetails.id
@@ -11298,7 +11302,12 @@ var render = function() {
         }
       ],
       staticClass: "signup-form__input",
-      attrs: { type: "text", name: "group", placeholder: "Search for groups" },
+      attrs: {
+        type: "text",
+        name: "group",
+        placeholder: "Search for groups",
+        autocomplete: "off"
+      },
       domProps: { value: _vm.input },
       on: {
         keyup: _vm.getGroups,
@@ -11338,7 +11347,7 @@ var render = function() {
                     staticClass: "signup-form__new-group",
                     on: {
                       click: function($event) {
-                        _vm.newChosen = true
+                        _vm.selectNew()
                       }
                     }
                   },
@@ -11382,7 +11391,7 @@ var render = function() {
             _vm._m(0),
             _vm._v(" "),
             _c("p", { staticClass: "signup-form__distance-value" }, [
-              _vm._v(_vm._s(_vm.groupDetails.target_distance) + "km")
+              _vm._v(_vm._s(_vm.groupDetails.target_distance / 1000) + "km")
             ])
           ]),
           _vm._v(" "),
