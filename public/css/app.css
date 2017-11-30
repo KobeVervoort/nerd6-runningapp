@@ -2,13 +2,17 @@
   padding: 0 16px 16px 16px;
 }
 
+.container {
+  padding: 0 8px;
+}
+
 .title {
   color: #0035BB;
   font-family: "lato", sans-serif;
   font-weight: 900;
   font-size: 1.5rem;
-  margin-bottom: 24px;
-  margin-top: 16px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .title--white {
@@ -30,37 +34,60 @@
   height: 30px;
 }
 
+.empty-state {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.empty-state__message {
+  font-family: "lato", sans-serif;
+  color: #D8D8D8;
+  line-height: 1.2rem;
+  margin-top: 2px;
+}
+
+.empty-state__snail {
+  height: 40px;
+  margin-right: 10px;
+}
+
 .signup-form {
   margin-top: 16px;
 }
 
 .signup-form__input {
   width: 100%;
-  border: none;
+  border: 1px solid #D8D8D8;
   border-radius: 2px;
-  background: #0035BB url("http://homestead.app/img/routes.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 0 30%;
   padding: 10px 8px;
   font-size: 1rem;
-  color: white;
+  color: #0035BB;
 }
 
 .signup-form__input::-webkit-input-placeholder {
-  color: white;
+  color: #0035BB;
+  opacity: 1;
 }
 
 .signup-form__input:-ms-input-placeholder {
-  color: white;
+  color: #0035BB;
+  opacity: 1;
 }
 
 .signup-form__input::-ms-input-placeholder {
-  color: white;
+  color: #0035BB;
+  opacity: 1;
 }
 
 .signup-form__input::placeholder {
-  color: white;
+  color: #0035BB;
+  opacity: 1;
+}
+
+.signup-form__input:focus {
+  border-color: #0035BB;
+  outline: none;
 }
 
 .signup-form__input--padded {
@@ -68,24 +95,26 @@
 }
 
 .signup-form__group-list {
-  border-right: 2px solid #D8D8D8;
-  border-left: 2px solid #D8D8D8;
+  border-right: 1px solid #D8D8D8;
+  border-left: 1px solid #D8D8D8;
+  cursor: pointer;
 }
 
 .signup-form__group {
   padding: 10px 7px;
   font-family: "lato", sans-serif;
-  border-bottom: 2px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
   font-weight: 700;
 }
 
 .signup-form__new-group {
-  border-bottom: 2px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   padding: 10px 7px;
   font-family: "lato", sans-serif;
   color: #0035BB;
+  cursor: pointer;
 }
 
 .signup-form__new-group--emphasis {
@@ -95,11 +124,16 @@
 
 .signup-form__textarea {
   width: 100%;
-  border: 2px solid #D8D8D8;
+  border: 1px solid #D8D8D8;
   border-radius: 2px;
   margin: 10px 0;
   padding: 6px;
   font-size: 1rem;
+}
+
+.signup-form__textarea:focus {
+  outline: none;
+  border-color: #0035BB;
 }
 
 .signup-form__submit {
@@ -153,6 +187,11 @@
 }
 
 .signup-form__distance-value {
+  margin: 16px;
+  color: #4A4A4A;
+}
+
+.signup-form__deadline-value {
   margin: 16px;
   color: #4A4A4A;
 }
@@ -248,6 +287,7 @@
 .user-list {
   font-family: "lato", sans-serif;
   font-size: 1.1rem;
+  padding: 0 8px;
 }
 
 .user-list__item {
@@ -272,8 +312,8 @@
 }
 
 .user-list__avatar {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 2px;
   margin: 0 15px;
 }
@@ -294,6 +334,84 @@
 .user-list__distance--first {
   font-weight: 900;
   color: #0035BB;
+}
+
+.activities-list {
+  width: 100%;
+  font-family: "lato", sans-serif;
+  font-size: 1.1rem;
+  padding: 0 8px;
+}
+
+.activities-list__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.activities-list__user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.activities-list__avatar {
+  height: 45px;
+  width: 45px;
+  border-radius: 2px;
+  margin-right: 15px;
+}
+
+.activities-list__name {
+  font-weight: 900;
+  margin-top: 14px;
+}
+
+.activities-list__date {
+  margin-top: 14px;
+  color: #4A4A4A;
+  font-weight: 300;
+}
+
+.activities-list__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.activities-list__label {
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  color: #4A4A4A;
+  font-weight: 300;
+}
+
+.activities-list__value {
+  font-weight: 700;
+}
+
+.activities-list__pace-info {
+  text-align: center;
+}
+
+.activities-list__time-info {
+  text-align: right;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background-color: #0035BB;
 }
 
 * {

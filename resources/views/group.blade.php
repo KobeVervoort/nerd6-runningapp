@@ -12,13 +12,15 @@
 
 @section ('content')
 
-    <div class="container">
-
     <h1 class="title">Top Runners</h1> <!--topWeekleFiveRunners-->
 
-        @if(1 != 1)
+    <div class="container">
+        @if($lastActivityUsers == null)
 
-            <p>No one in your group has run yet.</p>
+            <div class="empty-state">
+                <img class="empty-state__snail" src="/img/snail.png" alt="">
+                <p class="empty-state__message">Get ahead of your friends, register the first run and reach the top of the charts</p>
+            </div>
 
         @else
 
@@ -39,48 +41,71 @@
 
         @endif
 
+    </div>
+
     <h1 class="title">Latest Runs</h1>
 
-        @if($lastActivityUsers->isEmpty())
+    <div class="container">
 
-            <p>No one in your group has run yet.</p>
+        @if($lastActivityUsers == null)
+
+            <div class="empty-state">
+                <img class="empty-state__snail" src="/img/snail.png" alt="">
+                <p class="empty-state__message">There haven't yet been any runs recorded in your group</p>
+            </div>
 
         @else
 
-            <div style="display: flex; flex-wrap: wrap; flex-direction: row;">
+            <ul class="activities-list">
 
-                <img src="{{ $lastActivityUsers->user->avatar }}" style="height: 50px; width: 50px;" alt="Profile picture of {{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}">
-                <p>{{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}</p>
-                <p>{{$lastActivityUsers->endDate->diffForHumans()}}</p><!-- Time ago-->
+                <div class="activities-list__header">
 
-            </div>
-            <p>{{ $lastActivityUsers->name }}</p>
-            <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-between">
+                    <div class="activities-list__user-info">
 
-                <div><!-- distance -->
-                    <p>Distance</p>
-                    <p>{{ $lastActivityUsers->distance / 1000 . "km" }}</p>
-                </div>
-                <div><!-- pace -->
-                    <p>Pace</p>
-                    <p>{{ $lastActivityUsers->averageSpeed . "km/u"}}</p>
-                </div>
-                <div><!-- time -->
-                    <p>Time</p>
-                    <p>{{ $lastActivityUsers->elapsedTime }}</p><!-- in seconden! -->
+                        <img class="activities-list__avatar" src="{{ $lastActivityUsers->user->avatar }}" alt="Profile picture of {{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}">
+                        <p class="activities-list__name">{{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}</p>
+
+                    </div>
+
+                    <p class="activities-list__date">{{$lastActivityUsers->endDate->diffForHumans()}}</p><!-- Time ago-->
+
                 </div>
 
-            </div>
+                <div class="activities-list__body">
 
+                    <div class="activities-list__distance-info">
+
+                        <p class="activities-list__label">distance</p>
+                        <p class="activities-list__value">{{ $lastActivityUsers->distance / 1000 . "km" }}</p>
+
+                    </div>
+
+                    <div class="activities-list__pace-info">
+
+                        <p class="activities-list__label">pace</p>
+                        <p class="activities-list__value">{{ $lastActivityUsers->averageSpeed . "km/u"}}</p>
+
+                    </div>
+
+                    <div class="activities-list__time-info">
+
+                        <p class="activities-list__label">time</p>
+                        <p class="activities-list__value">{{ $lastActivityUsers->elapsedTime }}</p>
+
+                    </div>
+
+                </div>
+
+            </ul>
 
         @endif
 
-        <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-between;text-align: center;">
+    </div>
 
-            <p style="flex-basis: 40%;">{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
-            <p style="flex-basis: 40%;">Insert inspiring quote</p>
+    <div class="footer">
 
-        </div>
+        <p>{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
+        <p>Insert inspiring quote</p>
 
     </div>
 

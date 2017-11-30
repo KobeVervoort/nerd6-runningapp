@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Group;
 use App\Http\Controllers\Controller;
 use App\User;
+use Carbon\Carbon;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -139,7 +140,15 @@ class LoginController extends Controller
 
         if(!empty($term))
         {
-            return Group::where('name', 'like', '%'.$term.'%')->get();
+            $groups = Group::where('name', 'like', '%'.$term.'%')->get();
+
+            foreach ($groups as $group)
+            {
+                $endDate = new Carbon($group->end_date);
+                $group->end_date = $endDate->toFormattedDateString();
+            }
+
+            return $groups;
         }
         else
         {

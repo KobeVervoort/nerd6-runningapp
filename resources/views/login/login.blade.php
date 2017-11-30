@@ -13,7 +13,7 @@
 
     <div class="login">
 
-        <img src="img/logo.png" alt="Extra Mile Logo" class="login__logo">
+        <img src="/img/logo.png" alt="Extra Mile Logo" class="login__logo">
 
         <h1 class="login__title">Are you ready to go the <span class="login__title-span">Extra Mile</span>?</h1>
 

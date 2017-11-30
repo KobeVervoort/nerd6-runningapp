@@ -17,7 +17,7 @@ class CreateGroupsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->integer('target_distance');
             $table->dateTime('end_date');
         });

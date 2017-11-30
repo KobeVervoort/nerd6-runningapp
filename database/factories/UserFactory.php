@@ -27,7 +27,8 @@ $factory->define(App\User::class, function (Faker $faker) {
         'city' => $faker->city,
         'avatar' => 'http://lorempixel.com/600/600/people',
         'gender' => 'M'/*$faker->randomElements($genders)*/,
-        'remember_token' => ''
+        'remember_token' => '',
+        'group_id' => 1
     ];
 });
 
@@ -42,7 +43,7 @@ $factory->define(App\Activity::class, function (Faker $faker) {
         'activityId' => $faker->randomNumber(8),
         'userId' => $userID,
         'name' => $faker->realText(50),
-        'distance' => $faker->numberBetween(1, 30),
+        'distance' => $faker->numberBetween(1000, 20000),
         'startDate' => $faker->date(Carbon::now()),
         'endDate' => $faker->date(Carbon::now()),
         'elapsedTime' => 1,

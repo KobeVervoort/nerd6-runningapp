@@ -3,38 +3,40 @@
 
   +element('input')
     width: 100%
-    border: none
+    border: 1px solid $gray
     border-radius: 2px
-    background: $blue url("#{$asset_path}/img/routes.png")
-    background-repeat: no-repeat
-    background-size: cover
-    background-position: 0 30%
     padding: 10px 8px
     font-size: 1rem
-    color: white
+    color: $blue
     &::placeholder
-      color: white
+      color: $blue
+      opacity: 1
+    &:focus
+      border-color: $blue
+      outline: none
 
     +modifier('padded')
       margin-bottom: 10px
 
   +element('group-list')
-    border-right: 2px solid $gray
-    border-left: 2px solid $gray
+    border-right: 1px solid $gray
+    border-left: 1px solid $gray
+    cursor: pointer
 
   +element('group')
     padding: 10px 7px
     font-family: $lato
-    border-bottom: 2px solid $gray
+    border-bottom: 1px solid $gray
     font-weight: $bold
 
   +element('new-group')
-    border-bottom: 2px solid $gray
+    border-bottom: 1px solid $gray
     border-bottom-left-radius: 2px
     border-bottom-right-radius: 2px
     padding: 10px 7px
     font-family: $lato
     color: $blue
+    cursor: pointer
 
     +modifier('emphasis')
       font-weight: $bold
@@ -42,11 +44,14 @@
 
   +element('textarea')
     width: 100%
-    border: 2px solid $gray
+    border: 1px solid $gray
     border-radius: 2px
     margin: 10px 0
     padding: 6px
     font-size: 1rem
+    &:focus
+      outline: none
+      border-color: $blue
 
   +element('submit')
     color: $blue
@@ -83,6 +88,10 @@
     font-weight: $black
 
   +element('distance-value')
+    margin: 16px
+    color: $dark-gray
+
+  +element('deadline-value')
     margin: 16px
     color: $dark-gray
 

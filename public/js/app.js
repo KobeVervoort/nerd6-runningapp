@@ -11262,6 +11262,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.existingChosen = true;
             this.groupDetails = this.groups[id];
         },
+        selectNew: function selectNew() {
+            this.newChosen = true;
+            this.isDisabled = true;
+        },
         addExistingGroup: function addExistingGroup() {
             axios.post('/signup/existingGroup', {
                 groupID: this.groupDetails.id
@@ -11287,239 +11291,248 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", { staticClass: "signup-form", attrs: { action: "" } }, [
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.input,
-          expression: "input"
-        }
-      ],
-      staticClass: "signup-form__input",
-      attrs: { type: "text", name: "group", placeholder: "Search for groups" },
-      domProps: { value: _vm.input },
-      on: {
-        keyup: _vm.getGroups,
-        input: function($event) {
-          if ($event.target.composing) {
-            return
+  return _c(
+    "form",
+    { staticClass: "signup-form", attrs: { action: "", autocomplete: "off" } },
+    [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.input,
+            expression: "input"
           }
-          _vm.input = $event.target.value
+        ],
+        staticClass: "signup-form__input",
+        attrs: {
+          type: "text",
+          name: "group",
+          placeholder: "Search for groups",
+          autocomplete: "off"
+        },
+        domProps: { value: _vm.input },
+        on: {
+          keyup: _vm.getGroups,
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.input = $event.target.value
+          }
         }
-      }
-    }),
-    _vm._v(" "),
-    this.isDisabled == false
-      ? _c(
-          "ul",
-          { staticClass: "signup-form__group-list" },
-          [
-            _vm._l(_vm.groups, function(group, index) {
-              return _c(
-                "li",
-                {
-                  staticClass: "signup-form__group",
-                  on: {
-                    click: function($event) {
-                      _vm.selectExisting(group.name, index)
-                    }
-                  }
-                },
-                [_vm._v("\n            " + _vm._s(group.name) + "\n        ")]
-              )
-            }),
-            _vm._v(" "),
-            this.input != ""
-              ? _c(
+      }),
+      _vm._v(" "),
+      this.isDisabled == false
+        ? _c(
+            "ul",
+            { staticClass: "signup-form__group-list" },
+            [
+              _vm._l(_vm.groups, function(group, index) {
+                return _c(
                   "li",
                   {
-                    staticClass: "signup-form__new-group",
+                    staticClass: "signup-form__group",
                     on: {
                       click: function($event) {
-                        _vm.newChosen = true
+                        _vm.selectExisting(group.name, index)
                       }
                     }
                   },
-                  [
-                    _vm._v("\n            Create new group\n            "),
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "signup-form__new-group signup-form__new-group--emphasis"
-                      },
-                      [
-                        _vm._v(
-                          "\n                " +
-                            _vm._s(this.input) +
-                            "\n            "
-                        )
-                      ]
-                    )
-                  ]
+                  [_vm._v("\n            " + _vm._s(group.name) + "\n        ")]
                 )
-              : _vm._e()
-          ],
-          2
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.existingChosen == true
-      ? _c("div", { staticClass: "group-details" }, [
-          _c("h1", { staticClass: "title" }, [_vm._v("Group Details")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "normal-text" }, [
-            _vm._v(
-              "\n            " +
-                _vm._s(_vm.groupDetails.description) +
-                "\n        "
+              }),
+              _vm._v(" "),
+              this.input != ""
+                ? _c(
+                    "li",
+                    {
+                      staticClass: "signup-form__new-group",
+                      on: {
+                        click: function($event) {
+                          _vm.selectNew()
+                        }
+                      }
+                    },
+                    [
+                      _vm._v("\n            Create new group\n            "),
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "signup-form__new-group signup-form__new-group--emphasis"
+                        },
+                        [
+                          _vm._v(
+                            "\n                " +
+                              _vm._s(this.input) +
+                              "\n            "
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ],
+            2
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.existingChosen == true
+        ? _c("div", { staticClass: "group-details" }, [
+            _c("h1", { staticClass: "title" }, [_vm._v("Group Details")]),
+            _vm._v(" "),
+            _c("p", { staticClass: "normal-text" }, [
+              _vm._v(
+                "\n            " +
+                  _vm._s(_vm.groupDetails.description) +
+                  "\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "signup-form__distance" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("p", { staticClass: "signup-form__distance-value" }, [
+                _vm._v(_vm._s(_vm.groupDetails.target_distance / 1000) + "km")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "signup-form__deadline" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c("p", { staticClass: "signup-form__deadline-value" }, [
+                _vm._v(_vm._s(_vm.groupDetails.end_date))
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "signup-form__submit",
+                attrs: { href: "" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.addExistingGroup($event)
+                  }
+                }
+              },
+              [
+                _vm._v("Finish "),
+                _c("img", {
+                  staticClass: "button-arrow",
+                  attrs: { src: "/img/arrow-blue-right.png", alt: "" }
+                })
+              ]
             )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "signup-form__distance" }, [
-            _vm._m(0),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.newChosen == true
+        ? _c("div", { staticClass: "group-details" }, [
+            _c("h1", { staticClass: "title" }, [_vm._v("Group Details")]),
             _vm._v(" "),
-            _c("p", { staticClass: "signup-form__distance-value" }, [
-              _vm._v(_vm._s(_vm.groupDetails.target_distance) + "km")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "signup-form__deadline" }, [
-            _vm._m(1),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newDescription,
+                  expression: "newDescription"
+                }
+              ],
+              staticClass: "signup-form__textarea",
+              attrs: {
+                name: "description",
+                id: "",
+                cols: "30",
+                rows: "6",
+                placeholder: "description"
+              },
+              domProps: { value: _vm.newDescription },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newDescription = $event.target.value
+                }
+              }
+            }),
             _vm._v(" "),
-            _c("p", { staticClass: "signup-form__deadline-value" }, [
-              _vm._v(_vm._s(_vm.groupDetails.end_date))
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "signup-form__submit",
-              attrs: { href: "" },
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newTarget,
+                  expression: "newTarget"
+                }
+              ],
+              staticClass: "signup-form__input signup-form__input--padded",
+              attrs: { type: "number", placeholder: "Target Distance" },
+              domProps: { value: _vm.newTarget },
               on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.addExistingGroup($event)
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newTarget = $event.target.value
                 }
               }
-            },
-            [
-              _vm._v("Finish "),
-              _c("img", {
-                staticClass: "button-arrow",
-                attrs: { src: "/img/arrow-blue-right.png", alt: "" }
-              })
-            ]
-          )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.newChosen == true
-      ? _c("div", { staticClass: "group-details" }, [
-          _c("h1", { staticClass: "title" }, [_vm._v("Group Details")]),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newDescription,
-                expression: "newDescription"
-              }
-            ],
-            staticClass: "signup-form__textarea",
-            attrs: {
-              name: "description",
-              id: "",
-              cols: "30",
-              rows: "6",
-              placeholder: "description"
-            },
-            domProps: { value: _vm.newDescription },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+            }),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newDeadline,
+                  expression: "newDeadline"
                 }
-                _vm.newDescription = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newTarget,
-                expression: "newTarget"
-              }
-            ],
-            staticClass: "signup-form__input signup-form__input--padded",
-            attrs: { type: "number", placeholder: "Target Distance" },
-            domProps: { value: _vm.newTarget },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.newTarget = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.newDeadline,
-                expression: "newDeadline"
-              }
-            ],
-            staticClass: "signup-form__input signup-form__input--padded",
-            attrs: {
-              type: "text",
-              placeholder: "Deadline",
-              onfocus: "(this.type='date')"
-            },
-            domProps: { value: _vm.newDeadline },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.newDeadline = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "signup-form__submit",
-              attrs: { href: "" },
+              ],
+              staticClass: "signup-form__input signup-form__input--padded",
+              attrs: {
+                type: "text",
+                placeholder: "Deadline",
+                onfocus: "(this.type='date')"
+              },
+              domProps: { value: _vm.newDeadline },
               on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.addNewGroup($event)
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newDeadline = $event.target.value
                 }
               }
-            },
-            [
-              _vm._v("Finish "),
-              _c("img", {
-                staticClass: "button-arrow",
-                attrs: { src: "/img/arrow-blue-right.png", alt: "" }
-              })
-            ]
-          )
-        ])
-      : _vm._e()
-  ])
+            }),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "signup-form__submit",
+                attrs: { href: "" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.addNewGroup($event)
+                  }
+                }
+              },
+              [
+                _vm._v("Finish "),
+                _c("img", {
+                  staticClass: "button-arrow",
+                  attrs: { src: "/img/arrow-blue-right.png", alt: "" }
+                })
+              ]
+            )
+          ])
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
