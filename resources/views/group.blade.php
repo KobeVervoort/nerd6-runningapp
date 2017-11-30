@@ -12,13 +12,15 @@
 
 @section ('content')
 
+    <h1 class="title">Top Runners</h1> <!--topWeekleFiveRunners-->
+
     <div class="container">
+        @if($lastActivityUsers == null)
 
-        <h1 class="title">Top Runners</h1> <!--topWeekleFiveRunners-->
-
-        @if(1 != 1)
-
-            <p>No one in your group has run yet.</p>
+            <div class="empty-state">
+                <img class="empty-state__snail" src="/img/snail.png" alt="">
+                <p class="empty-state__message">Get ahead of your friends, register the first run and reach the top of the charts</p>
+            </div>
 
         @else
 
@@ -39,11 +41,17 @@
 
         @endif
 
-        <h1 class="title">Latest Runs</h1>
+    </div>
 
-        @if(1 != 1)
+    <h1 class="title">Latest Runs</h1>
 
-            <p>No one in your group has run yet.</p>
+    <div class="container">
+        @if($lastActivityUsers == null)
+
+            <div class="empty-state">
+                <img class="empty-state__snail" src="/img/snail.png" alt="">
+                <p class="empty-state__message">There haven't yet been any runs recorded in your group</p>
+            </div>
 
         @else
 
@@ -89,15 +97,14 @@
 
             </ul>
 
-
         @endif
 
-        <div class="footer">
+    </div>
 
-            <p>{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
-            <p>Insert inspiring quote</p>
+    <div class="footer">
 
-        </div>
+        <p>{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
+        <p>Insert inspiring quote</p>
 
     </div>
 
