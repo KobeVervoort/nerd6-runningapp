@@ -58,43 +58,47 @@
 
             <ul class="activities-list">
 
-                <div class="activities-list__header">
+                <li class="activity">
 
-                    <div class="activities-list__user-info">
+                    <div class="activity__header">
 
-                        <img class="activities-list__avatar" src="{{ $lastActivityUsers->user->avatar }}" alt="Profile picture of {{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}">
-                        <p class="activities-list__name">{{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}</p>
+                        <div class="activity__user-info">
 
-                    </div>
+                            <img class="activity__avatar" src="{{ $lastActivityUsers->user->avatar }}" alt="Profile picture of {{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}">
+                            <p class="activity__name">{{ $lastActivityUsers->user->firstname . " " . $lastActivityUsers->user->lastname }}</p>
 
-                    <p class="activities-list__date">{{$lastActivityUsers->endDate->diffForHumans()}}</p><!-- Time ago-->
+                        </div>
 
-                </div>
-
-                <div class="activities-list__body">
-
-                    <div class="activities-list__distance-info">
-
-                        <p class="activities-list__label">distance</p>
-                        <p class="activities-list__value">{{ $lastActivityUsers->distance / 1000 . "km" }}</p>
+                        <p class="activity__date">{{$lastActivityUsers->endDate->diffForHumans()}}</p><!-- Time ago-->
 
                     </div>
 
-                    <div class="activities-list__pace-info">
+                    <div class="activity__body">
 
-                        <p class="activities-list__label">pace</p>
-                        <p class="activities-list__value">{{ $lastActivityUsers->averageSpeed . "km/u"}}</p>
+                        <div class="activity__distance-info">
+
+                            <p class="activity__label">distance</p>
+                            <p class="activity__value">{{ $lastActivityUsers->distance / 1000 . "km" }}</p>
+
+                        </div>
+
+                        <div class="activity__pace-info">
+
+                            <p class="activity__label">pace</p>
+                            <p class="activity__value">{{ $lastActivityUsers->averageSpeed . "km/u"}}</p>
+
+                        </div>
+
+                        <div class="activity__time-info">
+
+                            <p class="activity__label">time</p>
+                            <p class="activity__value">{{ $lastActivityUsers->elapsedTime }}</p>
+
+                        </div>
 
                     </div>
 
-                    <div class="activities-list__time-info">
-
-                        <p class="activities-list__label">time</p>
-                        <p class="activities-list__value">{{ $lastActivityUsers->elapsedTime }}</p>
-
-                    </div>
-
-                </div>
+                </li>
 
             </ul>
 

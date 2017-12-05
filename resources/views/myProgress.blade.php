@@ -20,27 +20,62 @@
         <p>You haven't run in the last week.</p>
     @else
 
+        <ul class="activities-list">
+
         @foreach($lastActivitiesLoggedIn as $activity)
 
-            <div class="activity">
+            <li class="activity">
 
-                <div class="activity-info">
-                    <div class="user-info">
-                        <img src="{{$authUser->avatar}}" alt="" class="user-info__avatar">
-                        <p class="user-info__name">{{$authUser->firstname . ' ' . $authUser->lastname}}</p>
+                <div class="activity__header">
+
+                    <div class="activity__user-info">
+
+                        <img src="{{$authUser->avatar}}" alt="" class="activity__avatar">
+                        <p class="activity__name">{{$authUser->firstname . ' ' . $authUser->lastname}}</p>
+
                     </div>
-                    <p class="activity-info__date">{{$activity->endDate->diffForHumans()}}</p>
+
+                    <p class="activity__date">{{$activity->endDate->diffForHumans()}}</p>
+
                 </div>
 
-                <div class="activity-data">
-                    <h2 class="activity-data__name">{{ $activity->name }}</h2>
-                    <p class="activity-data__metric">Distance: {{ number_format($activity->distance/1000, 2, '.', '' )}} km</p>
-                    <p class="activity-data__metric">Speed: {{ number_format($activity->averageSpeed * 3.6, 2, '.', '') }} km/h</p>
+                <div class="activity__body">
+
+                    <p class="activity__name">{{ $activity->name }}</p>
+
+                    <div class="activity__data">
+
+                        <div class="activity__distance-info">
+
+                            <p class="activity__label">distance</p>
+                            <p class="activity__value">{{ $activity->distance / 1000 . "km" }}</p>
+
+                        </div>
+
+                        <div class="activity__pace-info">
+
+                            <p class="activity__label">pace</p>
+                            <p class="activity__value">{{ $activity->averageSpeed . "km/u"}}</p>
+
+                        </div>
+
+                        <div class="activity__time-info">
+
+                            <p class="activity__label">time</p>
+                            <p class="activity__value">{{ $activity->elapsedTime }}</p>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-            </div>
+            </li>
 
         @endforeach
+
+        </ul>
+
     @endif
 
     <h1 class="title">Weekly Summaries</h1>

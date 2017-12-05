@@ -4,6 +4,8 @@
   font-size: 1.1rem
   padding: 0 8px
 
+.activity
+
   +element('header')
     display: flex
     justify-content: space-between
@@ -27,9 +29,13 @@
     color: $dark-gray
     font-weight: $light
 
-  +element('body')
+  +element('data')
     display: flex
     justify-content: space-between
+
+  +element('name')
+    margin-bottom: 14px
+    font-weight: $regular
 
   +element('label')
     margin-bottom: 8px
