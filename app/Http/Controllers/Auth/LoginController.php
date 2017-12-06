@@ -66,7 +66,7 @@ class LoginController extends Controller
     public function redirectToProvider()
     {
 
-        return redirect("https://www.strava.com/oauth/authorize?client_id=20719&response_type=code&redirect_uri=" . env('STRAVA_CALLBACK_DOMAIN') . "/oauth/code_callback&scope=write&state=mystate");
+        return redirect("https://www.strava.com/oauth/authorize?client_id=" . env('STRAVA_CLIENT_ID') . "&response_type=code&redirect_uri=" . env('STRAVA_CALLBACK_DOMAIN') . "/oauth/code_callback&scope=write&state=mystate");
 
     }
 
