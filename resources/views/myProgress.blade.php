@@ -80,4 +80,6 @@
 
     <h1 class="title">Weekly Summaries</h1>
 
+    <p>You haven't run the last weeks. Come back next week and see what you did this week.</p>
+
 @endsection

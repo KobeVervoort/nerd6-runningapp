@@ -146,34 +146,6 @@ class ActivitiesController extends Controller
         return $topWeeklyFiveRunners;
     }
 
-    public function longestRunLoggedIn() {
-
-        $longestRunLoggedIn = Activity::orderBy('distance', 'desc')->get()->where('userId', '=' , auth()->user()->id)->first();
-
-        return $longestRunLoggedIn;
-    }
-
-    public function averageSpeedLoggedIn() {
-
-        $averageSpeedLoggedIn = Activity::all()->where('userId', '=' , auth()->user()->id)->avg('averageSpeed');
-
-        return $averageSpeedLoggedIn;
-    }
-
-    public function totalAchievementsLoggedIn() {
-
-        $totalAchievementsLoggedIn = Achievement::where('user_id', '=' , auth()->user()->id)->count();
-
-        return $totalAchievementsLoggedIn;
-    }
-
-    public function achievementsLoggedIn() {
-
-        $achievementsLoggedIn = Achievement::orderBy('updated_at', 'desc')->get()->where('user_id', '=' , auth()->user()->id);
-
-        return $achievementsLoggedIn;
-    }
-
     public function bestRunLoggedIn() {
 
         $bestRunLoggedIn = Activity::orderBy('elapsedTime', 'desc')->get()->where('userId', '=' , auth()->user()->id)->first();
@@ -207,7 +179,7 @@ class ActivitiesController extends Controller
 
     public function achievements() {
 
-        $longestRunLoggedIn = $this->longestLoggedInRun();
+        $longestRunLoggedIn = $this->longestRunLoggedIn();
         $averageSpeedLoggedIn = $this->averageSpeedLoggedIn();
         $totalAchievementsLoggedIn = $this->totalAchievementsLoggedIn();
         $achievementsLoggedIn = $this->achievementsLoggedIn(); // longest run ATM
