@@ -8,6 +8,22 @@
 
         <h1 class="title title--white">This Week's Goals</h1>
 
+        <div class="schedule">
+
+            <h2 class="schedule__dates">{{$thisWeek->start_date->format('l d/m') . ' - ' . $thisWeek->end_date->format('l d/m')}}</h2>
+
+            <p class="schedule__metric">
+                <i class="schedule__icon {{$thisWeek->distance_reached >= $thisWeek->distance_goal ? 'schedule__icon--success fa fa-check-square-o' : 'fa fa-square-o'}}"></i>
+                Run {{$thisWeek->distance_goal / 1000}}km in a single run
+            </p>
+
+            <p class="schedule__metric">
+                <i class="schedule__icon {{$thisWeek->frequency_reached >= $thisWeek->frequency_goal ? 'schedule__icon--success fa fa-check-square-o' : 'fa fa-square-o'}} schedule__icon"></i>
+                Go for {{$thisWeek->frequency_goal}} runs this week
+            </p>
+
+        </div>
+
     </div>
 
 @endsection

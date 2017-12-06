@@ -17,6 +17,7 @@
 
 .title--white {
   color: white;
+  margin-bottom: 4px;
 }
 
 .normal-text {
@@ -417,6 +418,31 @@
   width: 100%;
   height: 150px;
   background-color: #0035BB;
+}
+
+.schedule {
+  font-family: "lato", sans-serif;
+  color: white;
+  margin-left: 8px;
+}
+
+.schedule__dates {
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.schedule__metric {
+  margin-bottom: 8px;
+  margin-left: 8px;
+}
+
+.schedule__icon {
+  margin-right: 5px;
+}
+
+.schedule__icon--success {
+  color: #50E3C2;
 }
 
 * {

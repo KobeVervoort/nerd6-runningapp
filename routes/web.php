@@ -22,7 +22,7 @@ Route::get('/', 'Auth\LoginController@login')->name('login');
 // routes only accessible after a user is logged in
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/myProgress', 'ActivitiesController@myProgress');
+    Route::get('/myProgress', 'SchedulesController@myProgress');
     Route::get('/group', 'ActivitiesController@group');
     Route::get('/achievements', 'ActivitiesController@achievements');
     Route::get('/logout', 'Auth\LoginController@destroy');
