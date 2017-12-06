@@ -108,8 +108,8 @@
 
     <div class="footer">
 
-        <p>{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
-        <p>Insert inspiring quote</p>
+        <p class="totalDistanceUsers">{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
+        <p class="quote">{{ $quote }}</p>
 
     </div>
 

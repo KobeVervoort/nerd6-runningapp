@@ -94,6 +94,42 @@ class ActivitiesController extends Controller
         return $totalUsersDistance;
     }
 
+    public function weeklyTotalDistanceQuote()
+    {
+        $totalUserDistance = $this->totalDistanceUsers() / 1000;
+
+        if($totalUserDistance < 1)
+        {
+            $quote = "Nice weather to run, no?";
+        } elseif ($totalUserDistance < 5)
+        {
+            $quote = "Summerbody ready? Oh yeah!";
+        } elseif ($totalUserDistance < 10)
+        {
+            $quote = "Looks like you're doing well.";
+        } elseif ($totalUserDistance < 20)
+        {
+            $quote = "Run forrest, ruuuuuuun!";
+        } elseif ($totalUserDistance < 50)
+        {
+            $quote = "Damn that is a nice run you have there.";
+        } elseif ($totalUserDistance < 100)
+        {
+            $quote = "Can we get dem 100 km? Go group!";
+        } elseif ($totalUserDistance < 200)
+        {
+            $quote = "Sure you aren't overdoing your body?!";
+        } elseif ($totalUserDistance < 500)
+        {
+            $quote = "WOW! This group is so fit.";
+        } else
+        {
+            $quote = "Are you a marathon runner? Damn son!";
+        }
+
+        return $quote;
+    }
+
     public function topWeeklyRunners()
     {
         // Get all weekly distances from users and sort them
@@ -150,8 +186,9 @@ class ActivitiesController extends Controller
         $topWeeklyFiveRunners = $this->topWeeklyFiveRunners();
         $lastActivityUsers = $this->lastActivityUsers();
         $totalDistanceUsers = $this->totalDistanceUsers();
+        $quote = $this->weeklyTotalDistanceQuote();
 
-        return view('group')->with(compact('topWeeklyFiveRunners', 'lastActivityUsers', 'totalDistanceUsers'));
+        return view('group')->with(compact('topWeeklyFiveRunners', 'lastActivityUsers', 'totalDistanceUsers', 'quote'));
 
     }
 

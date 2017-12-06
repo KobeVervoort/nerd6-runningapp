@@ -82,6 +82,8 @@ abstract class StravaHandler extends Model
             // Format the callback to json
             $res = json_decode($res->getBody());
 
+            \Log::info('Activities test log = ');
+
             foreach ($res as $result) {
 
                 // Check if activity id already exists
