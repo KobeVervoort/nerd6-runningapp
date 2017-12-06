@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', 'Auth\LoginController@destroy');
     Route::get('/profile', 'UsersController@information');
     Route::get('/signup', 'Auth\LoginController@signup');
-    Route::get('/achievements', 'AchievementsController@showLoggedIn');
+    Route::get('/achievements', 'AchievementsController@show');
     Route::post('/signup/groups', 'Auth\LoginController@groups');
     Route::post('/signup/existingGroup', 'Auth\LoginController@addToExistingGroup');
     Route::post('/signup/newGroup', 'Auth\LoginController@addToNewGroup');

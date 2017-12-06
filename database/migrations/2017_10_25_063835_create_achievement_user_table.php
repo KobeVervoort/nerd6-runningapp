@@ -14,11 +14,11 @@ class CreateAchievementUserTable extends Migration
     public function up()
     {
         Schema::create('achievement_users', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('achievement_id')->unsigned()->nullable();
             $table->foreign('achievement_id')->references('id')->on('achievements')->onDelete('cascade');
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->primary(['achievement_id', 'user_id']);
             $table->boolean('congratulated');
             $table->timestamps();
         });

@@ -109,6 +109,7 @@ abstract class StravaHandler extends Model
 
                         \Log::info('Activities amount #2 = ' . Activity::where('userId', $user->id)->count());
 
+                        // Check if this is a user's first activity, if so make a new schedule
                         if(Activity::where('userId', $user->id)->count() == 0)
                         {
                             // make new schedule
@@ -126,7 +127,8 @@ abstract class StravaHandler extends Model
                         // save these variables in the database activities
                         $activity->save();
 
-                        // Check if this is a user's first activity, if so make a new schedule
+                        // Watch if new achievement goals have been reached
+                        //StravaHandler::rewardIndividualMedals();
 
                     }
                 }
@@ -202,4 +204,35 @@ abstract class StravaHandler extends Model
 
         }
     }
+
+    public static function rewardIndividualMedals()
+    {
+        $activities = Activity::all();
+
+        foreach ($activities as $activity)
+        {
+
+        }
+    }
+
+    public static function rewardWeeklyMedals()
+    {
+        $activities = Activity::all();
+
+        foreach ($activities as $activity)
+        {
+
+        }
+    }
+
+    public static function rewardGroupMedals()
+    {
+        $activities = Activity::all();
+
+        foreach ($activities as $activity)
+        {
+
+        }
+    }
+
 }
