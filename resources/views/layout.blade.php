@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/reset.css" type="text/css">
     <link rel="stylesheet" href="css/app.css" type="text/css">
     <title>Nerd Running</title>
+    <script src="https://use.fontawesome.com/7e5e4f22bf.js"></script>
 </head>
 <body>
 

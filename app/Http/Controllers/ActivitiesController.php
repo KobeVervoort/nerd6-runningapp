@@ -54,22 +54,6 @@ class ActivitiesController extends Controller
         return $lastActivities;
     }
 
-    public function lastActivitiesLoggedIn()
-    {
-        // Get all activities except for the logged in user
-        $lastLoggedInActivities = Activity::orderBy('endDate', 'desc')->get()->where('userId', '=' , auth()->user()->id);
-
-        return $lastLoggedInActivities;
-    }
-
-    public function lastFiveActivitiesLoggedIn()
-    {
-        // Get all activities except for the logged in user
-        $lastFiveLoggedInActivities = Activity::orderBy('endDate', 'desc')->take(5)->get()->where('userId', '=' , auth()->user()->id);
-
-        return $lastFiveLoggedInActivities;
-    }
-
     public function allDistancesUser()
     {
         // Get all activities from a user
@@ -167,6 +151,14 @@ class ActivitiesController extends Controller
         return $totalAchievementsLoggedIn;
     }
 
+    public function lastFiveActivitiesLoggedIn()
+    {
+        // Get all activities except for the logged in user
+        $lastFiveLoggedInActivities = Activity::orderBy('endDate', 'desc')->take(5)->get()->where('userId', '=' , auth()->user()->id);
+
+        return $lastFiveLoggedInActivities;
+    }
+
     public function achievementsLoggedIn() {
 
         $achievementsLoggedIn = Achievement::orderBy('updated_at', 'desc')->get()->where('user_id', '=' , auth()->user()->id);
@@ -190,19 +182,6 @@ class ActivitiesController extends Controller
 
         return view('group')->with(compact('topWeeklyFiveRunners', 'lastActivityUsers', 'totalDistanceUsers', 'quote'));
 
-    }
-
-    public function myProgress() {
-
-        if(empty(auth()->user()->group_id))
-        {
-            return redirect('/signup');
-        } else
-        {
-            $lastActivitiesLoggedIn = $this->lastActivitiesLoggedIn();
-
-            return view('myProgress')->with(compact('lastActivitiesLoggedIn'));
-        }
     }
 
     public function achievements() {
