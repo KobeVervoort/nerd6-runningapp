@@ -75,24 +75,30 @@
 
                     <div class="activity__body">
 
-                        <div class="activity__distance-info">
+                        <p class="activity__name">{{$lastActivityUsers->name}}</p>
 
-                            <p class="activity__label">distance</p>
-                            <p class="activity__value">{{ $lastActivityUsers->distance / 1000 . "km" }}</p>
+                        <div class="activity__data">
 
-                        </div>
+                            <div class="activity__distance-info">
 
-                        <div class="activity__pace-info">
+                                <p class="activity__label">distance</p>
+                                <p class="activity__value">{{ $lastActivityUsers->distance / 1000 . "km" }}</p>
 
-                            <p class="activity__label">pace</p>
-                            <p class="activity__value">{{ $lastActivityUsers->averageSpeed . "km/u"}}</p>
+                            </div>
 
-                        </div>
+                            <div class="activity__pace-info">
 
-                        <div class="activity__time-info">
+                                <p class="activity__label">pace</p>
+                                <p class="activity__value">{{ $lastActivityUsers->averageSpeed . "km/u"}}</p>
 
-                            <p class="activity__label">time</p>
-                            <p class="activity__value">{{ $lastActivityUsers->elapsedTime }}</p>
+                            </div>
+
+                            <div class="activity__time-info">
+
+                                <p class="activity__label">time</p>
+                                <p class="activity__value">{{ $lastActivityUsers->elapsedTime }}</p>
+
+                            </div>
 
                         </div>
 
