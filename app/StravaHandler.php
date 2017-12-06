@@ -16,12 +16,9 @@ abstract class StravaHandler extends Model
 
         $remainingTime = $endDate->diffInDays($firstRunDate);
 
-
-
         $weeksLeft = floor($remainingTime/7);
 
         \Log::info('weeks left = ' . $weeksLeft);
-
 
         for ($i = 0; $i<$weeksLeft; $i++)
         {
@@ -38,16 +35,15 @@ abstract class StravaHandler extends Model
             $schedule->week = $i+1;
             $schedule->start_date = $startDate;
             $schedule->end_date = $endDate;
-            $schedule->distance_goal = $group->target_distance;
-            if($i == 0)
-            {
-                $schedule->distance_reached = $activity->distance;
-                $schedule->frequency_reached = 1;
-            } else
-            {
-                $schedule->distance_reached = 0;
-                $schedule->frequency_reached = 0;
-            }
+
+            $baseGoalDiff = $group->target_distance - $activity->distance;
+            $weeklyDiff = $baseGoalDiff/$weeksLeft;
+
+            $schedule->distance_goal = $activity->distance + $weeklyDiff*($i+1);
+
+            $schedule->distance_reached = 0;
+            $schedule->frequency_reached = 0;
+
             $schedule->frequency_goal = 3;
             $schedule->save();
             \Log::info('Current Activity = ' . $activity->id);
@@ -119,7 +115,12 @@ abstract class StravaHandler extends Model
                             self::makeInitialSchedule($activity, $user, $group);
                         } else
                         {
-                            // update schedule
+                            $thisWeek = Schedule::where('start_date', '<=', $activity->startDate)
+                                ->where('end_date', '>', $activity->endDate)
+                                ->first();
+
+                            $thisWeek->distance_reached += $activity->distance;
+                            $thisWeek->frequency_reached += 1;
                         }
 
                         // save these variables in the database activities

@@ -6,6 +6,8 @@
 
         @include('shared.nav-blue')
 
+        @if($thisWeek)
+
         <h1 class="title title--white">This Week's Goals</h1>
 
         <div class="schedule">
@@ -23,6 +25,8 @@
             </p>
 
         </div>
+
+        @endif
 
     </div>
 
