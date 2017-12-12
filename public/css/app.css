@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900);.main {
   padding: 0 16px 16px 16px;
+  max-width: 796px;
+  margin: auto;
 }
 
 .container {
@@ -15,9 +17,22 @@
   margin-top: 20px;
 }
 
+@media only screen and (min-width: 600px) {
+  .title {
+    font-size: 1.7rem;
+  }
+}
+
 .title--white {
   color: white;
   margin-bottom: 4px;
+}
+
+@media only screen and (min-width: 600px) {
+  .title--white {
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
 }
 
 .normal-text {
@@ -213,6 +228,11 @@
   padding: 16px;
 }
 
+.header-container {
+  max-width: 796px;
+  margin: auto;
+}
+
 .nav {
   width: 100%;
   font-family: "lato", sans-serif;
@@ -220,16 +240,32 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 77px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+@media only screen and (min-width: 600px) {
+  .nav {
+    height: 50px;
+  }
 }
 
 .nav__link {
   font-weight: 300;
   text-transform: uppercase;
   color: #D8D8D8;
-  padding-bottom: 7px;
+  padding-bottom: 13px;
   text-decoration: none;
   letter-spacing: -0.5px;
   z-index: 1;
+}
+
+@media only screen and (min-width: 600px) {
+  .nav__link {
+    font-size: 1.2rem;
+    padding-bottom: 14px;
+    padding-top: 5px;
+  }
 }
 
 .nav__link--blue {
@@ -270,6 +306,16 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+  max-width: 400px;
+}
+
+@media only screen and (min-width: 600px) {
+  .nav-bottom {
+    max-width: 420px;
+    margin-left: 100px;
+    position: absolute;
+    top: 18px;
+  }
 }
 
 .nav-bottom__underline {
@@ -283,6 +329,15 @@
 
 .nav-bottom__underline--blue {
   background-color: #7292F9;
+}
+
+@media only screen and (min-width: 600px) {
+  .nav-bottom__underline {
+    padding-left: 100px;
+    padding-right: 150px;
+    max-width: 1000px;
+    top: -8px;
+  }
 }
 
 .user-list {
@@ -432,9 +487,22 @@
   margin-bottom: 16px;
 }
 
+@media only screen and (min-width: 600px) {
+  .schedule__dates {
+    margin-bottom: 22px;
+  }
+}
+
 .schedule__metric {
   margin-bottom: 8px;
   margin-left: 8px;
+}
+
+@media only screen and (min-width: 600px) {
+  .schedule__metric {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+  }
 }
 
 .schedule__icon {
@@ -461,11 +529,62 @@
   color: white;
 }
 
-.login__logo {
+@media only screen and (min-width: 480px) {
+  .login {
+    padding: 24vh 0 31vh 0;
+    background-image: url("http://homestead.app/img/jumbotron.jpg");
+    background-size: cover;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .login__card {
+    margin: 0 10vw;
+    max-width: 300px;
+    height: 100%;
+    position: relative;
+    background: white url("http://homestead.app/img/routes-dark.png");
+    border: 1px solid #D8D8D8;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-size: 175% 175%;
+    background-position: center;
+  }
+}
+
+.login__logo-mobile {
   display: block;
-  margin: auto;
+  margin: 15px auto auto auto;
   padding-right: 10px;
-  width: 130px;
+  width: 100px;
+  height: 100%;
+  background-image: url("http://homestead.app/img/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 480px) {
+  .login__logo-mobile {
+    display: none;
+  }
+}
+
+.login__logo-desktop {
+  display: none;
+}
+
+@media only screen and (min-width: 480px) {
+  .login__logo-desktop {
+    display: block;
+    width: 80px;
+    height: 100px;
+    background-image: url("http://homestead.app/img/logo-blue.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
 }
 
 .login__title {
@@ -475,6 +594,16 @@
   padding: 0 20px;
   text-align: center;
   line-height: 2.6rem;
+}
+
+@media only screen and (min-width: 480px) {
+  .login__title {
+    color: black;
+    position: absolute;
+    top: 30px;
+    margin: 0;
+    font-size: 2rem;
+  }
 }
 
 .login__title-span {
@@ -490,18 +619,33 @@
   font-size: 1.2rem;
 }
 
+@media only screen and (min-width: 480px) {
+  .login__call {
+    color: #4A4A4A;
+    bottom: 80px;
+  }
+}
+
 .login__button {
   position: absolute;
   bottom: 0;
+  height: 80px;
   width: 100%;
+  border: 20px solid #fa4e1f;
   text-align: center;
-  padding: 30px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background: #fa4e1f url("http://homestead.app/img/strava_logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
-.login__button-link {
-  display: block;
-  padding: 12px;
-  background-color: #fa4e1f;
-  border-radius: 2px;
+@media only screen and (min-width: 480px) {
+  .login__button {
+    position: absolute;
+    height: 60px;
+    border: 13px solid #fa4e1f;
+  }
 }
 

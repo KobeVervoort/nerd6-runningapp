@@ -13,15 +13,20 @@
 
     <div class="login">
 
-        <img src="/img/logo.png" alt="Extra Mile Logo" class="login__logo">
+        <div class="login__logo-desktop"></div>
 
-        <h1 class="login__title">Are you ready to go the <span class="login__title-span">Extra Mile</span>?</h1>
+        <div class="login__card">
 
-        <p class="login__call">Login or sign up with</p>
+            <div class="login__logo-mobile"></div>
 
-        <div class="login__button">
-            <a class="login__button-link" href="/loginstrava"><img src="img/strava_logo.png" alt="Strava logo" class="login__logo"></a>
+            <h1 class="login__title">Are you ready to go the <span class="login__title-span">Extra Mile</span>?</h1>
+
+            <p class="login__call">Login or sign up with</p>
+
+            <a class="login__button" href="/loginstrava"></a>
+
         </div>
+
     </div>
 
 </body>
