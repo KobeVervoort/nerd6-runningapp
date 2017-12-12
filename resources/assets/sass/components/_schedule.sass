@@ -7,10 +7,16 @@
     font-weight: $light
     font-size: 1.2rem
     margin-bottom: 16px
+    +apply-to(greater-than, custom-width)
+      margin-bottom: 22px
 
   +element('metric')
     margin-bottom: 8px
     margin-left: 8px
+    +apply-to(greater-than, custom-width)
+      margin-bottom: 12px
+      font-size: 1.1rem
+
 
   +element('icon')
     margin-right: 5px

@@ -1,5 +1,7 @@
 .main
   padding: 0 16px 16px 16px
+  max-width: 796px
+  margin: auto
 
 .container
   padding: 0 8px
@@ -11,10 +13,16 @@
   font-size: 1.5rem
   margin-bottom: 20px
   margin-top: 20px
+  +apply-to(greater-than, custom-width)
+    font-size: 1.7rem
 
   +modifier('white')
     color: white
     margin-bottom: 4px
+
+    +apply-to(greater-than, custom-width)
+      letter-spacing: 1px
+      margin-bottom: 8px
 
 .normal-text
   font-family: $lato

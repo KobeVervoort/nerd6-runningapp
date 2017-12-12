@@ -6,19 +6,23 @@
 
         @include('shared.nav-blue')
 
-        <div>
+        <div class="header-container">
 
             <div>
-                <p>Longest distance</p>
-                <p>{{ $longestRunLoggedIn  }}</p>
-            </div>
-            <div>
-                <p>Average speed</p>
-                <p>{{ $averageSpeedLoggedIn }}</p>
-            </div>
-            <div>
-                <p>Total achievements</p>
-                <p>{{ $totalAchievementsLoggedIn }} x <img style="height: 1.5em; width: auto;" src="img/medal-run-blue.png" alt="Medal icon"></p>
+
+                <div>
+                    <p>Longest distance</p>
+                    <p>{{ $longestRunLoggedIn  }}</p>
+                </div>
+                <div>
+                    <p>Average speed</p>
+                    <p>{{ $averageSpeedLoggedIn }}</p>
+                </div>
+                <div>
+                    <p>Total achievements</p>
+                    <p>{{ $totalAchievementsLoggedIn }} x <img style="height: 1.5em; width: auto;" src="img/medal-run-blue.png" alt="Medal icon"></p>
+                </div>
+
             </div>
 
         </div>

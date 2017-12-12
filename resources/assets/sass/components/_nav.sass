@@ -8,21 +8,33 @@
     background-size: cover
     padding: 16px
 
+.header-container
+  max-width: 796px
+  margin: auto
+
 .nav
   width: 100%
   font-family: $lato
   top: 0
   box-sizing: border-box
   height: 77px
+  max-width: 1000px
+  margin: auto
+  +apply-to(greater-than, custom-width)
+    height: 50px
 
   +element('link')
     font-weight: $light
     text-transform: uppercase
     color: $gray
-    padding-bottom: 7px
+    padding-bottom: 13px
     text-decoration: none
     letter-spacing: -0.5px
     z-index: 1
+    +apply-to(greater-than, custom-width)
+      font-size: 1.2rem
+      padding-bottom: 14px
+      padding-top: 5px
 
     +modifier('blue')
       color: $lightBlue
@@ -51,6 +63,12 @@
   display: inline-flex
   justify-content: space-between
   width: 100%
+  max-width: 400px
+  +apply-to(greater-than, custom-width)
+    max-width: 420px
+    margin-left: 100px
+    position: absolute
+    top: 18px
 
   +element('underline')
     width: 100%
@@ -62,3 +80,9 @@
 
     +modifier('blue')
       background-color: $lightBlue
+
+    +apply-to(greater-than, custom-width)
+      padding-left: 100px
+      padding-right: 150px
+      max-width: 1000px
+      top: -8px
