@@ -8,6 +8,6 @@ class Achievement extends Model
 {
     public function users()
     {
-        return $this->belongsToMany('App\User')->withTimestamps();
+        return $this->belongsToMany('App\User', 'achievement_user')->withTimestamps();
     }
 }

@@ -15,7 +15,7 @@ class User extends Authenticatable
 
     public function achievements()
     {
-        return $this->belongsToMany('App/Achievement')->withTimestamps();
+        return $this->belongsToMany('App/Achievement', 'achievement_user')->withTimestamps();
     }
 
     public function groups()
