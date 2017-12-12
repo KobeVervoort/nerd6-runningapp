@@ -133,6 +133,9 @@ abstract class StravaHandler extends Model
                     }
                 }
             }
+            \Log::info($user->id);
+            self::rewardIndividualMedals(1);
+            self::rewardGroupMedals(1);
         }
     }
 
@@ -205,24 +208,146 @@ abstract class StravaHandler extends Model
         }
     }
 
-    public static function rewardIndividualMedals()
+    public static function rewardIndividualMedals($user)
     {
-        $activities = Activity::all();
+        $activities = Activity::where('userId', 1);
 
-        foreach ($activities as $activity)
+        // amount of runs
+        $amountActivities = count($activities->get());
+
+        if( $amountActivities >= 200 )
         {
-
+            self::giveAchievement($user, 7);
         }
-    }
-
-    public static function rewardWeeklyMedals()
-    {
-        $activities = Activity::all();
-
-        foreach ($activities as $activity)
+        elseif( $amountActivities >= 100 )
         {
-
+            self::giveAchievement($user, 6);
         }
+        elseif( $amountActivities >= 50 )
+        {
+            self::giveAchievement($user, 5);
+        }
+        elseif( $amountActivities >= 20 )
+        {
+            self::giveAchievement($user, 4);
+        }
+        elseif( $amountActivities >= 10 )
+        {
+            self::giveAchievement($user, 3);
+        }
+        elseif( $amountActivities >= 5 )
+        {
+            self::giveAchievement($user, 2);
+        }
+        elseif( $amountActivities >= 1 )
+        {
+            self::giveAchievement(1, 1);
+        }
+
+        //distance of runs
+        $distance = Activity::orderBy('distance')->where('userId', 1)->get()->first();
+        // Object of class App\Activity could not be converted to int {"exception":"[object] (ErrorException(code: 0): Object of class App\\Activity could not be converted to int at /home/vagrant/Code/app/StravaHandler.php:251)[stacktrace]
+
+        if( $distance >= 100000 )
+        {
+            self::giveAchievement($user, 14);
+        }
+        elseif( $distance >= 40000 )
+        {
+            self::giveAchievement($user, 13);
+        }
+        elseif( $distance >= 20000 )
+        {
+            self::giveAchievement($user, 12);
+        }
+        elseif( $distance >= 16000 )
+        {
+            self::giveAchievement($user, 11);
+        }
+        elseif( $distance >= 8000 )
+        {
+            self::giveAchievement($user, 10);
+        }
+        elseif( $distance >= 4000 )
+        {
+            self::giveAchievement($user, 9);
+        }
+        elseif( $distance >= 1000 )
+        {
+            self::giveAchievement(1, 8);
+        }
+
+        //distance of runs
+        $duration = Activity::orderBy('elapsedTime')->where('userId', 1)->get()->first();
+
+        if( $duration >= 14400 )
+        {
+            self::giveAchievement($user, 19);
+        }
+        elseif( $duration >= 7200 )
+        {
+            self::giveAchievement($user, 18);
+        }
+        elseif( $duration >= 3600 )
+        {
+            self::giveAchievement($user, 17);
+        }
+        elseif( $duration >= 1800 )
+        {
+            self::giveAchievement($user, 16);
+        }
+        elseif( $duration >= 900 )
+        {
+            self::giveAchievement($user, 15);
+        }
+
+        //speed of runs
+        $speed = Activity::orderBy('elapsedTime')->where('userId', 1)->get()->first();
+
+        if( $speed >= 20 )
+        {
+            self::giveAchievement($user, 23);
+        }
+        elseif( $speed >= 15 )
+        {
+            self::giveAchievement($user, 22);
+        }
+        elseif( $speed >= 10 )
+        {
+            self::giveAchievement($user, 21);
+        }
+        elseif( $speed >= 5 )
+        {
+            self::giveAchievement($user, 20);
+        }
+
+        //period of training
+        $firstlastactivity = Activity::orderBy('startDate')->where('userId', 1);
+        $first = $firstlastactivity->get()->first();
+        $last = $firstlastactivity->get()->last();
+        $interval = $last->diffInDays($first);
+
+        if( $interval >= 365 )
+        {
+            self::giveAchievement($user, 28);
+        }
+        elseif( $interval >= 183 )
+        {
+            self::giveAchievement($user, 27);
+        }
+        elseif( $interval >= 91 )
+        {
+            self::giveAchievement($user, 26);
+        }
+        elseif( $interval >= 30 )
+        {
+            self::giveAchievement($user, 25);
+        }
+        elseif( $interval >= 7 )
+        {
+            self::giveAchievement($user, 24);
+        }
+
     }
 
     public static function rewardGroupMedals()
@@ -232,6 +357,24 @@ abstract class StravaHandler extends Model
         foreach ($activities as $activity)
         {
 
+        }
+    }
+
+    public static function giveAchievement($userid, $achievementid)
+    {
+        $achievements = AchievementUser::where('user_id', '=', 1)->where('achievement_id', $achievementid)->get();
+
+        if ($achievements == null)
+        {
+            $achievementUser = new AchievementUser();
+
+            $achievementUser->achievement_id = $achievementid;
+            $achievementUser->user_id = $userid;
+            $achievementUser->congratulated = 0;
+            $achievementUser->created_at = Carbon::now();
+            $achievementUser->updated_at = Carbon::now();
+
+            $achievementUser->save();
         }
     }
 
