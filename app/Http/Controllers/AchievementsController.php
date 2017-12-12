@@ -41,12 +41,22 @@ class AchievementsController extends Controller
 
         $longestRunLoggedIn = Activity::orderBy('distance', 'desc')->get()->where('userId', '=' , auth()->user()->id)->first();
 
+        if( count($longestRunLoggedIn) == 0 )
+        {
+            $longestRunLoggedIn->distance = 0;
+        }
+
         return $longestRunLoggedIn->distance / 1000;
     }
 
     public function averageSpeedLoggedIn() {
 
         $averageSpeedLoggedIn = Activity::all()->where('userId', '=' , auth()->user()->id)->avg('averageSpeed');
+
+        if( count($averageSpeedLoggedIn) == 0 )
+        {
+            $averageSpeedLoggedIn->averageSpeed = 0;
+        }
 
         return $averageSpeedLoggedIn;
     }

@@ -13,6 +13,6 @@ class AchievementUser extends Model
 
     public function achievements()
     {
-        return $this->hasMany(Achievement::class);
+        return $this->belongsTo(Achievement::class);
     }
 }
