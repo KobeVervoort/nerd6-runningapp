@@ -45,7 +45,7 @@ class SchedulesController extends Controller
 
         if($thisWeek)
         {
-            return Schedule::all()->where('end_date', '<=', $thisWeek->start_date);
+            return Schedule::all()->where('end_date', '<=', $thisWeek->start_date)->where('user_id', auth()->user()->id);
         }
         else
         {
