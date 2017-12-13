@@ -104,6 +104,32 @@
 
     <h1 class="title">Weekly Summaries</h1>
 
-    <p>You haven't run the last weeks. Come back next week and see what you did this week.</p>
+    @if( count($weeklyGoals) == 0 )
+        <p>Looks like you just began. Keep up the good work!</p>
+    @else
+
+        <div class="weeklyGoalscontainer">
+
+            @foreach( $weeklyGoals as $goal )
+                <div class="weeklyGoal">
+
+                    <h3>Week {{ $goal->week }}</h3>
+
+                    <div class="weeklyGoalElement">
+                        <p>Distance goal</p>
+                        <p>{{ $goal->distance_reached }} / {{ $goal->distance_goal }}</p>
+                    </div>
+
+                    <div class="weeklyGoalElement">
+                        <p>Frequency goal</p>
+                        <p>{{ $goal->frequency_reached }} / {{ $goal->frequency_goal }}</p>
+                    </div>
+
+                </div>
+            @endforeach
+
+        </div>
+
+    @endif
 
 @endsection

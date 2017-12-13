@@ -52,9 +52,20 @@ class SchedulesController extends Controller
 
             $thisWeek = $this->getCurrentWeek();
 
+            $weeklyGoals = $this->getRecentWeeks();
 
-            return view('myProgress')->with(compact('lastActivitiesLoggedIn', 'thisWeek'));
+
+            return view('myProgress')->with(compact('lastActivitiesLoggedIn', 'thisWeek', 'weeklyGoals'));
         }
+    }
+
+    public function getRecentWeeks()
+    {
+
+        $weeklyGoals = Schedule::orderBy('id', 'desc')->where('user_id', '=', auth()->user()->id)->where('end_date', '<', Carbon::now())->get();
+
+        return $weeklyGoals;
+
     }
 
 }
