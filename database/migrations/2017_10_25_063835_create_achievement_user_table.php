@@ -13,7 +13,7 @@ class CreateAchievementUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('achievement_user', function (Blueprint $table) {
+        Schema::create('achievement_users', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('achievement_id')->unsigned()->nullable();
             $table->foreign('achievement_id')->references('id')->on('achievements')->onDelete('cascade');
