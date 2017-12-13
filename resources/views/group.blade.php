@@ -114,8 +114,12 @@
 
     <div class="footer">
 
-        <p class="totalDistanceUsers">{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
-        <p class="quote">{{ $quote }}</p>
+        <div class="footer__container">
+
+            <p class="footer__metric">{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
+            <p class="footer__quote">{{ $quote }}</p>
+
+        </div>
 
     </div>
 

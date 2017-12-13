@@ -61,6 +61,9 @@
     text-decoration: none
     position: absolute
     bottom: 16px
+    +apply-to(greater-than, custom-width)
+      position: inherit
+
 
   +element('distance')
     display: flex
@@ -98,6 +101,8 @@
   +element('medal')
     height: 50px
 
+.group-details
+  margin: 16px 0
 
 
 
