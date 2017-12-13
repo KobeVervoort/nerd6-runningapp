@@ -11225,6 +11225,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -11507,30 +11509,30 @@ var render = function() {
                   _vm.newDeadline = $event.target.value
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "signup-form__submit",
+                attrs: { href: "" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.addNewGroup($event)
+                  }
+                }
+              },
+              [
+                _vm._v("Finish "),
+                _c("img", {
+                  staticClass: "button-arrow",
+                  attrs: { src: "/img/arrow-blue-right.png", alt: "" }
+                })
+              ]
+            )
           ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "signup-form__submit",
-          attrs: { href: "" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              _vm.addNewGroup($event)
-            }
-          }
-        },
-        [
-          _vm._v("Finish "),
-          _c("img", {
-            staticClass: "button-arrow",
-            attrs: { src: "/img/arrow-blue-right.png", alt: "" }
-          })
-        ]
-      )
+        : _vm._e()
     ]
   )
 }
