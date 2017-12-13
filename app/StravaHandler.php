@@ -46,7 +46,7 @@ abstract class StravaHandler extends Model
 
             $schedule->frequency_goal = 3;
             $schedule->save();
-            \Log::info('Current Activity = ' . $activity->id);
+
         }
 
     }
@@ -116,15 +116,17 @@ abstract class StravaHandler extends Model
                         {
                             // make new schedule
                             self::makeInitialSchedule($activity, $user, $group);
-                        } else
-                        {
-                            $thisWeek = Schedule::where('start_date', '<=', $activity->startDate)
-                                ->where('end_date', '>', $activity->endDate)
-                                ->first();
 
-                            $thisWeek->distance_reached += $activity->distance;
-                            $thisWeek->frequency_reached += 1;
+
                         }
+                        $thisWeek = Schedule::where('start_date', '<=', $activity->startDate)
+                            ->where('end_date', '>', $activity->endDate)
+                            ->first();
+
+                        $thisWeek->distance_reached += $activity->distance;
+                        $thisWeek->frequency_reached += 1;
+
+                        $thisWeek->save();
 
                         // save these variables in the database activities
                         $activity->save();
