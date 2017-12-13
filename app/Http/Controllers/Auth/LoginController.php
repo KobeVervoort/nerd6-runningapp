@@ -186,6 +186,10 @@ class LoginController extends Controller
         $user->group_id = $group->id;
         $user->save();
 
+        StravaHandler::handleApiRequestAllActivities();
+
+        StravaHandler::userDistances();
+
         return 'Ok';
     }
 }
