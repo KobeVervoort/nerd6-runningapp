@@ -56,9 +56,9 @@
 
             <input type="text" placeholder="Deadline" class="signup-form__input signup-form__input--padded" onfocus="(this.type='date')" v-model="newDeadline">
 
-            <a href="" class="signup-form__submit" v-on:click.prevent="addNewGroup">Finish <img src="/img/arrow-blue-right.png" alt="" class="button-arrow"></a>
-
         </div>
+
+        <a href="" class="signup-form__submit" v-on:click.prevent="addNewGroup">Finish <img src="/img/arrow-blue-right.png" alt="" class="button-arrow"></a>
 
     </form>
 </template>

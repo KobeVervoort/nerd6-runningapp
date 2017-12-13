@@ -5,3 +5,27 @@
   width: 100%
   height: 150px
   background-color: $blue
+  color: white
+  font-family: $lato
+
+  +element('container')
+    padding-top: 50px
+    max-width: 400px
+    margin: auto
+    display: flex
+
+  +element('metric')
+    flex-basis: 40%
+    font-size: 30px
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center
+
+  +element('quote')
+    flex-basis: 60%
+    font-size: 15px
+    display: flex
+    justify-content: center
+    align-items: center
+    text-align: center

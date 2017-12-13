@@ -189,6 +189,12 @@
   bottom: 16px;
 }
 
+@media only screen and (min-width: 600px) {
+  .signup-form__submit {
+    position: inherit;
+  }
+}
+
 .signup-form__distance {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -241,6 +247,10 @@
 
 .signup-form__medal {
   height: 50px;
+}
+
+.group-details {
+  margin: 16px 0;
 }
 
 .header {
@@ -509,6 +519,49 @@
   width: 100%;
   height: 150px;
   background-color: #0035BB;
+  color: white;
+  font-family: "lato", sans-serif;
+}
+
+.footer__container {
+  padding-top: 50px;
+  max-width: 400px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer__metric {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  font-size: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.footer__quote {
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
 }
 
 .schedule {
