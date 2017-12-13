@@ -1,10 +1,22 @@
 .main
   padding: 0 16px 16px 16px
-  max-width: 796px
+  max-width: 850px
   margin: auto
+  +apply-to(greater-than, custom-width)
+    display: flex
+    justify-content: space-between
+    padding: 0 0 16px 0
 
 .container
   padding: 0 8px
+
+.content-container
+  width: 100%
+  +apply-to(greater-than, custom-width)
+    border: 1px solid $gray
+    border-radius: 3px
+    padding: 12px
+    margin: 16px 8px
 
 .title
   color: $blue
@@ -15,6 +27,7 @@
   margin-top: 20px
   +apply-to(greater-than, custom-width)
     font-size: 1.7rem
+    margin-top: 0
 
   +modifier('white')
     color: white
@@ -23,6 +36,7 @@
     +apply-to(greater-than, custom-width)
       letter-spacing: 1px
       margin-bottom: 8px
+      margin-top: 20px
 
 .normal-text
   font-family: $lato

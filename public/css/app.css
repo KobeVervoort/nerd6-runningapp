@@ -1,11 +1,36 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700,900);.main {
   padding: 0 16px 16px 16px;
-  max-width: 796px;
+  max-width: 850px;
   margin: auto;
+}
+
+@media only screen and (min-width: 600px) {
+  .main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 0 16px 0;
+  }
 }
 
 .container {
   padding: 0 8px;
+}
+
+.content-container {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .content-container {
+    border: 1px solid #D8D8D8;
+    border-radius: 3px;
+    padding: 12px;
+    margin: 16px 8px;
+  }
 }
 
 .title {
@@ -20,6 +45,7 @@
 @media only screen and (min-width: 600px) {
   .title {
     font-size: 1.7rem;
+    margin-top: 0;
   }
 }
 
@@ -32,6 +58,7 @@
   .title--white {
     letter-spacing: 1px;
     margin-bottom: 8px;
+    margin-top: 20px;
   }
 }
 
@@ -399,6 +426,15 @@
   padding: 0 8px;
 }
 
+.activity {
+  margin-bottom: 16px;
+}
+
+.activity:not(:first-child) {
+  border-top: 1px solid #D8D8D8;
+  padding-top: 16px;
+}
+
 .activity__header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -515,6 +551,7 @@
 
 .schedule__icon {
   margin-right: 5px;
+  width: 15px;
 }
 
 .schedule__icon--success {
