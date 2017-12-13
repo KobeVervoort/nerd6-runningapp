@@ -487,6 +487,10 @@
   margin-bottom: 16px;
 }
 
+.schedule__dates--previous {
+  color: black;
+}
+
 @media only screen and (min-width: 600px) {
   .schedule__dates {
     margin-bottom: 22px;
@@ -505,12 +509,20 @@
   }
 }
 
+.schedule__metric--previous {
+  color: black;
+}
+
 .schedule__icon {
   margin-right: 5px;
 }
 
 .schedule__icon--success {
   color: #50E3C2;
+}
+
+.schedule__icon--previous {
+  color: black;
 }
 
 * {

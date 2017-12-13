@@ -104,26 +104,26 @@
 
     <h1 class="title">Weekly Summaries</h1>
 
-    @if( count($weeklyGoals) == 0 )
+    @if( count($previousWeeks) == 0 )
         <p>Looks like you just began. Keep up the good work!</p>
     @else
 
         <div class="weeklyGoalscontainer">
 
-            @foreach( $weeklyGoals as $goal )
-                <div class="weeklyGoal">
+            @foreach( $previousWeeks as $week )
+                <div class="schedule schedule--previous">
 
-                    <h3>Week {{ $goal->week }}</h3>
+                    <h2 class="schedule__dates schedule__dates--previous">Week {{$week->week . ': ' . $week->start_date->format('l d/m') . ' - ' . $week->end_date->format('l d/m')}}</h2>
 
-                    <div class="weeklyGoalElement">
-                        <p>Distance goal</p>
-                        <p>{{ $goal->distance_reached }} / {{ $goal->distance_goal }}</p>
-                    </div>
+                    <p class="schedule__metric schedule__metric--previous">
+                        <i class="schedule__icon {{$week->distance_reached >= $week->distance_goal ? 'schedule__icon--success fa fa-check-square-o' : 'schedule__icon--previous fa fa-square-o'}}"></i>
+                        Run {{$week->distance_goal / 1000}}km in a single run
+                    </p>
 
-                    <div class="weeklyGoalElement">
-                        <p>Frequency goal</p>
-                        <p>{{ $goal->frequency_reached }} / {{ $goal->frequency_goal }}</p>
-                    </div>
+                    <p class="schedule__metric schedule__metric--previous">
+                        <i class="schedule__icon {{$week->frequency_reached >= $week->frequency_goal ? 'schedule__icon--success fa fa-check-square-o' : 'schedule__icon--previous fa fa-square-o'}} schedule__icon"></i>
+                        Go for {{$week->frequency_goal}} runs this week
+                    </p>
 
                 </div>
             @endforeach

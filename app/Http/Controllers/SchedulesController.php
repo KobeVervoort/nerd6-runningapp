@@ -38,6 +38,13 @@ class SchedulesController extends Controller
         return $week->frequency_reached >= $week->frequency_goal ?  true :  false;
     }*/
 
+    private function getPreviousWeeks()
+    {
+        $thisWeek = $this->getCurrentWeek();
+
+        return Schedule::all()->where('end_date', '<=', $thisWeek->start_date);
+    }
+
     public function myProgress()
     {
 
@@ -52,20 +59,12 @@ class SchedulesController extends Controller
 
             $thisWeek = $this->getCurrentWeek();
 
-            $weeklyGoals = $this->getRecentWeeks();
+            $previousWeeks = $this->getPreviousWeeks();
 
-
-            return view('myProgress')->with(compact('lastActivitiesLoggedIn', 'thisWeek', 'weeklyGoals'));
+            return view('myProgress')->with(compact('lastActivitiesLoggedIn', 'thisWeek', 'previousWeeks'));
         }
     }
 
-    public function getRecentWeeks()
-    {
 
-        $weeklyGoals = Schedule::orderBy('id', 'desc')->where('user_id', '=', auth()->user()->id)->where('end_date', '<', Carbon::now())->get();
-
-        return $weeklyGoals;
-
-    }
 
 }
