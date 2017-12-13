@@ -43,9 +43,9 @@
 
             <div class="single-achievement">
 
-                <div><img src="{{ $achievement->image }}" alt="{{ $achievement->name }}"></div>
+                <div><img src="/public/img/medal-run-blue.png" alt="blue medal"></div>
                 <div>
-                    <p style="font-weight: bold;">{{ $achievement->name }}</p>
+                    <p style="font-weight: bold;">1 run</p>
                 </div>
                 <div>{{ $achievement->updated_at->diffForHumans() }}</div><!-- time ago -->
 
@@ -64,9 +64,9 @@
 
             <div class="single-achievement">
 
-                <div><img src="{{ $achievement->image }}" alt="{{ $achievement->name }}"></div>
+                <div><img src="/public/img/medal-run-blue.png" alt="blue medal"></div>
                 <div>
-                    <p style="font-weight: bold;">{{ $achievement->name }}</p>
+                    <p style="font-weight: bold;">1 run</p>
                 </div>
                 <div>{{ $achievement->updated_at->diffForHumans() }}</div><!-- time ago -->
 
