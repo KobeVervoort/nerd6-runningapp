@@ -21,6 +21,7 @@ class SchedulesController extends Controller
     {
         return Schedule::where('start_date', '<=', Carbon::now())
             ->where('end_date', '>', Carbon::now())
+            ->where('user_id', auth()->user()->id)
             ->first();
     }
 
