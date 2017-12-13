@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')/*->unique()*/;
             $table->string('city');
             $table->string('avatar');
-            $table->string('gender');
+            $table->string('gender')->nullable();
             $table->integer('group_id')->unsigned()->nullable();
             $table->foreign('group_id')->references('id')->on('groups');
             $table->rememberToken();
