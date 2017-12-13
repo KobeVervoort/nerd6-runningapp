@@ -42,7 +42,14 @@ class SchedulesController extends Controller
     {
         $thisWeek = $this->getCurrentWeek();
 
-        return Schedule::all()->where('end_date', '<=', $thisWeek->start_date);
+        if($thisWeek)
+        {
+            return Schedule::all()->where('end_date', '<=', $thisWeek->start_date);
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public function myProgress()
