@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Achievement;
 use App\AchievementUser;
 use App\Activity;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -32,9 +33,10 @@ class AchievementsController extends Controller
         $longestRunLoggedIn = $this->longestRunLoggedIn();
         $averageSpeedLoggedIn = $this->averageSpeedLoggedIn();
         $totalAchievementsLoggedIn = $this->totalAchievementsLoggedIn();
-        $achievementsLoggedIn = $this->achievementsLoggedIn(); // longest run ATM
+        $achievementsLoggedIn = $this->achievementsLoggedIn();
+        $weeklyAchievements = $this->weeklyAchievements();
 
-        return view('achievements')->with(compact('longestRunLoggedIn', 'averageSpeedLoggedIn', 'totalAchievementsLoggedIn', 'achievementsLoggedIn'));
+        return view('achievements')->with(compact('longestRunLoggedIn', 'averageSpeedLoggedIn', 'totalAchievementsLoggedIn', 'achievementsLoggedIn', 'weeklyAchievements'));
     }
 
     public function longestRunLoggedIn() {
@@ -70,8 +72,15 @@ class AchievementsController extends Controller
 
     public function achievementsLoggedIn() {
 
-        $achievementsLoggedIn = AchievementUser::orderBy('updated_at', 'desc')->get()->where('user_id', '=' , auth()->user()->id);
+        $achievementsLoggedIn = AchievementUser::orderBy('created_at', 'desc')->get()->where('user_id', '=' , auth()->user()->id);
 
         return $achievementsLoggedIn;
+    }
+
+    public function weeklyAchievements() {
+
+        $weeklyAchievements = AchievementUser::orderBy('created_at', 'desc')->get()->where('created_at', '<=' , Carbon::now(-7));
+
+        return $weeklyAchievements;
     }
 }

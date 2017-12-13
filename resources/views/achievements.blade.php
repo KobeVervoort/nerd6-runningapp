@@ -12,11 +12,11 @@
 
                 <div>
                     <p>Longest distance</p>
-                    <p>{{ $longestRunLoggedIn  }}</p>
+                    <p>{{ $longestRunLoggedIn  }}km</p>
                 </div>
                 <div>
                     <p>Average speed</p>
-                    <p>{{ $averageSpeedLoggedIn }}</p>
+                    <p>{{ round($averageSpeedLoggedIn, 2) }} km/h</p>
                 </div>
                 <div>
                     <p>Total achievements</p>
@@ -41,9 +41,9 @@
 
         @foreach($achievementsLoggedIn as $achievement)
 
-            <div>
+            <div class="single-achievement">
 
-                <div></div>
+                <div><img src="{{ $achievement->image }}" alt="{{ $achievement->name }}"></div>
                 <div>
                     <p style="font-weight: bold;">{{ $achievement->name }}</p>
                 </div>
@@ -55,5 +55,24 @@
     @endif
 
     <h1 class="title">Weekly Summaries</h1>
+
+    @if($weeklyAchievements->isEmpty())
+        <img style="width:60%; height: auto;display:block; margin:0 auto;" src="https://memegenerator.net/img/images/600x600/11745649/run-forrest-run.jpg" alt="Run forrest run">
+    @else
+
+        @foreach($weeklyAchievements as $achievement)
+
+            <div class="single-achievement">
+
+                <div><img src="{{ $achievement->image }}" alt="{{ $achievement->name }}"></div>
+                <div>
+                    <p style="font-weight: bold;">{{ $achievement->name }}</p>
+                </div>
+                <div>{{ $achievement->updated_at->diffForHumans() }}</div><!-- time ago -->
+
+            </div>
+
+        @endforeach
+    @endif
 
 @endsection
