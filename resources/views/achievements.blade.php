@@ -8,19 +8,21 @@
 
         <div class="header-container">
 
-            <div>
+            <div class="my-achievements">
 
-                <div>
-                    <p>Longest distance</p>
-                    <p>{{ $longestRunLoggedIn  }}km</p>
+                <div class="my-achievements__block">
+                    <h2 class="my-achievements__title">Longest distance</h2>
+                    <p class="my-achievements__metric">{{ $longestRunLoggedIn  }}km</p>
                 </div>
-                <div>
-                    <p>Average speed</p>
-                    <p>{{ round($averageSpeedLoggedIn, 2) }} km/h</p>
+
+                <div class="my-achievements__block">
+                    <h2 class="my-achievements__title">Average speed</h2>
+                    <p class="my-achievements__metric">{{ round($averageSpeedLoggedIn, 2) }} km/h</p>
                 </div>
-                <div>
-                    <p>Total achievements</p>
-                    <p>{{ $totalAchievementsLoggedIn }} x <img style="height: 1.5em; width: auto;" src="img/medal-run-blue.png" alt="Medal icon"></p>
+
+                <div class="my-achievements__block">
+                    <h2 class="my-achievements__title">Total achievements</h2>
+                    <p class="my-achievements__metric my-achievements__metric--medal-counter">{{ $totalAchievementsLoggedIn }} x <img class="my-achievements__medal" style="height: 1.5em; width: auto;" src="img/medal-run-blue.png" alt="Medal icon"></p>
                 </div>
 
             </div>

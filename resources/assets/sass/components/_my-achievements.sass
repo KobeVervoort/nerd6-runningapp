@@ -1,0 +1,22 @@
+.my-achievements
+  color: white
+  font-family: $lato
+  margin-top: 16px
+
+  +element('block')
+    display: flex
+    justify-content: space-between
+    margin-bottom: 24px
+
+  +element('title')
+    font-weight: $black
+
+  +element('metric')
+    +modifier('medal-counter')
+      position: relative
+      right: 30px
+
+  +element('medal')
+    position: absolute
+    right: -30px
+    top: -4px
