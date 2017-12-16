@@ -214,10 +214,10 @@ abstract class StravaHandler extends Model
     public static function rewardIndividualMedals($user)
     {
         \Log::info($user);
-        $activities = Activity::where('userId', 1);
+        $activities = Activity::where('userId', '=', $user)->get();
 
         // amount of runs
-        $amountActivities = count($activities->get());
+        $amountActivities = count($activities);
         \Log::info('Amount of activities: ' . $amountActivities);
 
         if( $amountActivities >= 200 )
@@ -246,11 +246,11 @@ abstract class StravaHandler extends Model
         }
         elseif( $amountActivities >= 1 )
         {
-            self::giveAchievement(1, 1);
+            self::giveAchievement($user, 1);
         }
 
         //distance of runs
-        $distance = Activity::orderBy('distance')->where('userId', 1)->get()->first();
+        $distance = Activity::orderBy('distance')->where('userId', $user)->get()->first();
         \Log::info('Distance: ' . $distance['distance']);
 
         if( $distance['distance'] >= 100000 )
@@ -279,11 +279,11 @@ abstract class StravaHandler extends Model
         }
         elseif( $distance['distance'] >= 1000 )
         {
-            self::giveAchievement(1, 8);
+            self::giveAchievement($user, 8);
         }
 
         //distance of runs
-        $duration = Activity::orderBy('elapsedTime')->where('userId', 1)->get()->first();
+        $duration = Activity::orderBy('elapsedTime')->where('userId', $user)->get()->first();
         \Log::info('Duration: ' . $duration['elapsedTime']);
 
         if( $duration['elapsedTime'] >= 14400 )
@@ -308,7 +308,7 @@ abstract class StravaHandler extends Model
         }
 
         //speed of runs
-        $speed = Activity::orderBy('averageSpeed')->where('userId', 1)->get()->first();
+        $speed = Activity::orderBy('averageSpeed')->where('userId', $user)->get()->first();
         \Log::info('Speed: ' . $speed['averageSpeed']);
 
         if( $speed['averageSpeed'] >= 20 )
@@ -329,7 +329,7 @@ abstract class StravaHandler extends Model
         }
 
         //period of training
-        $firstlastactivity = Activity::orderBy('startDate')->where('userId', 1);
+        $firstlastactivity = Activity::orderBy('startDate')->where('userId', $user);
         $first1= $firstlastactivity->get()->first();
         $first2 = Carbon::parse($first1['startDate']);
         $last1 = $firstlastactivity->get()->last();
@@ -371,7 +371,7 @@ abstract class StravaHandler extends Model
 
     public static function giveAchievement($userid, $achievementid)
     {
-        $achievements = AchievementUser::where('user_id', '=', 1)->where('achievement_id', $achievementid)->get();
+        $achievements = AchievementUser::where('user_id', '=', $userid)->where('achievement_id', $achievementid)->get();
 
         if (count($achievements) == 0)
         {
