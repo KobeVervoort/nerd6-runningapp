@@ -114,6 +114,8 @@
 
     <div class="footer">
 
+        <h1 style=" text-align: center; padding-top: 20px; font-size: 24px;">Group total distance</h1>
+
         <div class="footer__container">
 
             <p class="footer__metric">{{ round($totalDistanceUsers / 1000, 2) . "km"  }}</p>
