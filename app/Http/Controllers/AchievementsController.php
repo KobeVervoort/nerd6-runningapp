@@ -72,14 +72,14 @@ class AchievementsController extends Controller
 
     public function achievementsLoggedIn() {
 
-        $achievementsLoggedIn = AchievementUser::orderBy('created_at', 'desc')->get()->where('user_id', '=' , auth()->user()->id);
+        $achievementsLoggedIn = AchievementUser::orderBy('created_at', 'desc')->where('user_id', '=' , auth()->user()->id)->where('congratulated', '=', 1)->get();
 
         return $achievementsLoggedIn;
     }
 
     public function weeklyAchievements() {
 
-        $weeklyAchievements = AchievementUser::orderBy('created_at', 'desc')->get()->where('created_at', '<=' , Carbon::now(-7));
+        $weeklyAchievements = AchievementUser::orderBy('created_at', 'desc')->where('created_at', '<=' , Carbon::now(-7))->get();
 
         return $weeklyAchievements;
     }
