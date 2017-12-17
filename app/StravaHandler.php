@@ -256,7 +256,7 @@ abstract class StravaHandler extends Model
         }
 
         //distance of runs
-        $distance = Activity::orderBy('distance')->where('userId', $user)->get()->first();
+        $distance = Activity::orderBy('distance', 'desc')->where('userId', $user)->get()->first();
         \Log::info('Distance: ' . $distance['distance']);
 
         if( $distance['distance'] >= 100000 )
