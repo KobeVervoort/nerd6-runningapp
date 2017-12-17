@@ -72,8 +72,40 @@ class AchievementsController extends Controller
 
     public function achievementsLoggedIn() {
 
-        $achievementsLoggedIn = AchievementUser::orderBy('created_at', 'desc')->where('user_id', '=' , auth()->user()->id)->where('congratulated', '=', 1)->get();
+        $achievementsLoggedIn = AchievementUser::orderBy('achievement_id', 'desc')->where('user_id', '=' , auth()->user()->id)->get();
+        /*$bestAchievementsLoggedIn = [];
 
+        $amountOfRuns = $achievementsLoggedIn->where('achievement_id', '<=', 7 )->get()->first();
+        if( count($amountOfRuns) == 1 ) {
+            $bestAchievementsLoggedIn = $amountOfRuns;
+            return $bestAchievementsLoggedIn;
+        }
+
+        $distanceRuns = $achievementsLoggedIn->where('achievement_id', '>', 7 )->where('achievement_id', '<=', 14 )->get()->first();
+        if( count($distanceRuns) == 1 ) {
+            $bestAchievementsLoggedIn = $distanceRuns;
+            return $bestAchievementsLoggedIn;
+        }
+
+        $timeRuns = $achievementsLoggedIn->where('achievement_id', '>', 14 )->where('achievement_id', '<=', 19 )->get()->first();
+        if( count($timeRuns) == 1 ) {
+            $bestAchievementsLoggedIn = $timeRuns;
+            return $bestAchievementsLoggedIn;
+        }
+
+        $speedRuns = $achievementsLoggedIn->where('achievement_id', '>', 19 )->where('achievement_id', '<=', 24 )->get()->first();
+        if( count($speedRuns) == 1 ) {
+            $bestAchievementsLoggedIn = $speedRuns;
+            return $bestAchievementsLoggedIn;
+        }
+
+        $periodRuns = $achievementsLoggedIn->where('achievement_id', '>', 24 )->get()->first();
+        if( count($periodRuns) == 1 ) {
+            $bestAchievementsLoggedIn = $periodRuns;
+            return $bestAchievementsLoggedIn;
+        }
+
+        return $bestAchievementsLoggedIn;*/
         return $achievementsLoggedIn;
     }
 
