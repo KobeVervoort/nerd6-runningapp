@@ -12,7 +12,7 @@ class SchedulesController extends Controller
     private function lastActivitiesLoggedIn()
     {
         // Get all activities except for the logged in user
-        $lastLoggedInActivities = Activity::orderBy('endDate', 'desc')->get()->where('userId', '=' , auth()->user()->id);
+        $lastLoggedInActivities = Activity::orderBy('endDate', 'desc')->get()->where('userId', '=' , auth()->user()->id)->take(5);
 
         return $lastLoggedInActivities;
     }
