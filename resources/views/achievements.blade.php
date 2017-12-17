@@ -53,7 +53,7 @@
 
             <div class="single-achievement" style="display: flex; justify-content: space-around;">
 
-                <div><img src="/public/img/medal-run-blue.png" alt="blue medal"></div>
+                <div><img src="/public/img/medal-run-blue.png" alt="medal for achievement {{$congratulate->achievement_id}}"></div>
                 <div>
                     <p style="font-weight: bold;">1 run</p>
                 </div>
