@@ -373,7 +373,7 @@ abstract class StravaHandler extends Model
     {
         $achievements = AchievementUser::where('user_id', '=', $userid)->where('achievement_id', $achievementid)->get();
 
-        if (count($achievements) == 0)
+        if (!count($achievements) > 0)
         {
             $achievementUser = new AchievementUser();
 

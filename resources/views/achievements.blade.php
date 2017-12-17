@@ -87,7 +87,7 @@
 
         <div class="single-achievement">
 
-            <div><img src="/public/img/medal-run-blue.png" alt="blue medal"></div>
+            <div><img src="/public/img/medal-run-blue.png" alt="medal for achievement {{$achievement->achievement_id}}"></div>
             <div>
                 <p style="font-weight: bold;">1 run</p>
             </div>
