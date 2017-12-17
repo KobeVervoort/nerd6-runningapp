@@ -295,7 +295,7 @@ abstract class StravaHandler extends Model
         }
 
         //distance of runs
-        $duration = Activity::orderBy('elapsedTime')->where('userId', $user)->get()->first();
+        $duration = Activity::orderBy('elapsedTime', 'desc')->where('userId', $user)->get()->first();
         \Log::info('Duration: ' . $duration['elapsedTime']);
 
         if( $duration['elapsedTime'] >= 14400 )
@@ -324,7 +324,7 @@ abstract class StravaHandler extends Model
         }
 
         //speed of runs
-        $speed = Activity::orderBy('averageSpeed')->where('userId', $user)->get()->first();
+        $speed = Activity::orderBy('averageSpeed', 'desc')->where('userId', $user)->get()->first();
         \Log::info('Speed: ' . $speed['averageSpeed']);
 
         if( $speed['averageSpeed'] >= 20 )
@@ -348,7 +348,7 @@ abstract class StravaHandler extends Model
         }
 
         //period of training
-        $firstlastactivity = Activity::orderBy('startDate')->where('userId', $user);
+        $firstlastactivity = Activity::orderBy('startDate', 'desc')->where('userId', $user);
         $first1= $firstlastactivity->get()->first();
         $first2 = Carbon::parse($first1['startDate']);
         $last1 = $firstlastactivity->get()->last();
