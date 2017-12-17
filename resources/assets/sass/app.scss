@@ -4,6 +4,7 @@
 
 @import "base/fonts";
 @import "base/main";
+@import "base/animations";
 
 @import "components/signup-form";
 @import "components/nav";
@@ -12,6 +13,8 @@
 @import "components/footer";
 @import "components/schedule";
 @import "components/my-achievements";
+@import "components/congratulations";
+@import "components/achievements-list";
 
 @import "layouts/login";
 @import "layouts/signup";

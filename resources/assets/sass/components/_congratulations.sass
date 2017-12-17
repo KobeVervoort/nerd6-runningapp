@@ -1,0 +1,19 @@
+.congratulations
+  border: 1px solid #50E39E
+  background-color: #C4FFE3
+  border-radius: 3px
+  padding: 16px
+  display: flex
+  justify-content: space-between
+  font-family: $lato
+  font-weight: $light
+  margin-bottom: 8px
+  animation-name: achievement-in, achievement-out
+  animation-duration: 1s, 1s
+  animation-delay: 0s, 5s
+  animation-fill-mode: forwards, forwards
+
+  +element('congratulations')
+
+    +modifier('emphasis')
+      font-weight: $black

@@ -22,7 +22,7 @@
 
                 <div class="my-achievements__block">
                     <h2 class="my-achievements__title">Total achievements</h2>
-                    <p class="my-achievements__metric my-achievements__metric--medal-counter">{{ $totalAchievementsLoggedIn }} x <img class="my-achievements__medal" style="height: 1.5em; width: auto;" src="img/medal-run-blue.png" alt="Medal icon"></p>
+                    <p class="my-achievements__metric my-achievements__metric--medal-counter">{{ $totalAchievementsLoggedIn }} x <img class="my-achievements__medal" style="height: 1.5em; width: auto;" src="img/medal-run-white.png" alt="Medal icon"></p>
                 </div>
 
             </div>
@@ -41,36 +41,28 @@
         //echo count($congratulateAchievements);
     ?>
 
-    <h1 class="title">My Achievements</h1>
-
     @if(count($congratulateAchievements) != 0)
-
-        <div class="congratulate-achievement-container" style="border: 2px solid green; background-color: lightgreen; border-radius: 5px; padding: 20px;margin-bottom:20px;">
-
-            <h2 style="font-size: 20px; font-weight: bold; color: white; margin-bottom: 20px;">You earned new achievements</h2>
 
         @foreach($congratulateAchievements as $congratulate)
 
-            <div class="single-achievement" style="display: flex; justify-content: space-around;">
+            <div class="congratulations">
 
-                <div><img src="/public/img/medal-run-blue.png" alt="medal for achievement {{$congratulate->achievement_id}}"></div>
-                <div>
-                    <p style="font-weight: bold;">1 run</p>
-                </div>
-                <div>{{ $congratulate->updated_at->diffForHumans() }}</div><!-- time ago -->
+                <p class="congratulations__congratulations">You've got a new achievement for: <span class="congratulations__congratulations congratulations__congratulations--emphasis">my first run</span></p>
+                <p class="congratulations__time">{{ $congratulate->updated_at->diffForHumans() }}</p>
 
             </div>
 
         @endforeach
+        
 
-        </div> <!-- end congratulate-achievement-container -->
 
     @endif
+
+    <h1 class="title">My Achievements</h1>
 
     @if($achievementsLoggedIn->isEmpty())
         <img style="width:60%; height: auto;display:block; margin:0 auto;margin-bottom:20px;" src="https://memegenerator.net/img/images/600x600/11745649/run-forrest-run.jpg" alt="Run forrest run">
     @endif
-
 
     <?php
     // Update congratulated=0 to congratulated=1
@@ -82,40 +74,20 @@
     }
     ?>
 
+    <ul class="achievements-list">
 
     @foreach($achievementsLoggedIn as $achievement)
 
-        <div class="single-achievement">
+        <li class="achievement">
 
-            <div><img src="/public/img/medal-run-blue.png" alt="medal for achievement {{$achievement->achievement_id}}"></div>
-            <div>
-                <p style="font-weight: bold;">1 run</p>
-            </div>
-            <div>{{ $achievement->updated_at->diffForHumans() }}</div><!-- time ago -->
+            <img src="/../img/medal-run-blue.png" alt="medal for achievement {{$achievement->achievement_id}}" class="achievement__medal">
+            <p class="achievement__name">my first run</p>
+            <p class="achievement__time">{{ $achievement->updated_at->diffForHumans() }}</p>
 
-        </div>
+        </li>
 
     @endforeach
 
-    <h1 class="title">Weekly Summaries</h1>
-
-    @if($weeklyAchievements->isEmpty())
-        <img style="width:60%; height: auto;display:block; margin:0 auto; margin-bottom:20px;" src="https://memegenerator.net/img/images/600x600/11745649/run-forrest-run.jpg" alt="Run forrest run">
-    @else
-
-        @foreach($weeklyAchievements as $achievement)
-
-            <div class="single-achievement">
-
-                <div><img src="/public/img/medal-run-blue.png" alt="blue medal"></div>
-                <div>
-                    <p style="font-weight: bold;">1 run</p>
-                </div>
-                <div>{{ $achievement->updated_at->diffForHumans() }}</div><!-- time ago -->
-
-            </div>
-
-        @endforeach
-    @endif
+    </ul>
 
 @endsection
