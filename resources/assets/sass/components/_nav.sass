@@ -1,12 +1,19 @@
 .header
   padding: 16px 16px 0 16px
+  margin-bottom: 32px
 
   +modifier('blue')
     height: 240px
-    background: $blue url("#{$asset_path}/img/routes.png")
+    background: $blue url("/../img/routes.png")
     background-repeat: no-repeat
     background-size: cover
     padding: 16px
+    margin-bottom: 0
+    +apply-to(greater-than, custom-width)
+      background: $blue url("/../img/routes-horizontal.png")
+      background-size: 100%
+      background-position: 0 -200px
+      background-repeat: no-repeat
 
 .header-container
   max-width: 796px
