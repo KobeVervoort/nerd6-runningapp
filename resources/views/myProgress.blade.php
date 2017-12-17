@@ -18,7 +18,7 @@
 
                 <p class="schedule__metric">
                     <i class="schedule__icon {{$thisWeek->distance_reached >= $thisWeek->distance_goal ? 'schedule__icon--success fa fa-check-square-o' : 'fa fa-square-o'}}"></i>
-                    Run {{$thisWeek->distance_goal / 1000}}km in a single run
+                    Run {{number_format(($thisWeek->distance_goal / 1000), 2)}}km in a single run
                 </p>
 
                 <p class="schedule__metric">
@@ -76,21 +76,21 @@
                             <div class="activity__distance-info">
 
                                 <p class="activity__label">distance</p>
-                                <p class="activity__value">{{ $activity->distance / 1000 . "km" }}</p>
+                                <p class="activity__value">{{ number_format(($activity->distance / 1000), 2) . "km" }}</p>
 
                             </div>
 
                             <div class="activity__pace-info">
 
                                 <p class="activity__label">pace</p>
-                                <p class="activity__value">{{ $activity->averageSpeed . "km/u"}}</p>
+                                <p class="activity__value">{{ number_format(($activity->averageSpeed * 3.6), 2) . "km/u"}}</p>
 
                             </div>
 
                             <div class="activity__time-info">
 
                                 <p class="activity__label">time</p>
-                                <p class="activity__value">{{ $activity->elapsedTime }}</p>
+                                <p class="activity__value">{{ gmdate("H:i:s", $activity->elapsedTime) }}</p>
 
                             </div>
 
@@ -125,7 +125,7 @@
 
                             <p class="schedule__metric schedule__metric--previous">
                                 <i class="schedule__icon {{$week->distance_reached >= $week->distance_goal ? 'schedule__icon--success fa fa-check-square-o' : 'schedule__icon--previous fa fa-square-o'}}"></i>
-                                Run {{$week->distance_goal / 1000}}km in a single run
+                                Run {{number_format(($week->distance_goal / 1000), 2)}}km in a single run
                             </p>
 
                             <p class="schedule__metric schedule__metric--previous">
