@@ -224,27 +224,33 @@ abstract class StravaHandler extends Model
         {
             self::giveAchievement($user, 7);
         }
-        elseif( $amountActivities >= 100 )
+
+        if( $amountActivities >= 100 )
         {
             self::giveAchievement($user, 6);
         }
-        elseif( $amountActivities >= 50 )
+
+        if( $amountActivities >= 50 )
         {
             self::giveAchievement($user, 5);
         }
-        elseif( $amountActivities >= 20 )
+
+        if( $amountActivities >= 20 )
         {
             self::giveAchievement($user, 4);
         }
-        elseif( $amountActivities >= 10 )
+
+        if( $amountActivities >= 10 )
         {
             self::giveAchievement($user, 3);
         }
-        elseif( $amountActivities >= 5 )
+
+        if( $amountActivities >= 5 )
         {
             self::giveAchievement($user, 2);
         }
-        elseif( $amountActivities >= 1 )
+
+        if( $amountActivities >= 1 )
         {
             self::giveAchievement($user, 1);
         }
@@ -257,27 +263,33 @@ abstract class StravaHandler extends Model
         {
             self::giveAchievement($user, 14);
         }
-        elseif( $distance['distance'] >= 40000 )
+
+        if( $distance['distance'] >= 40000 )
         {
             self::giveAchievement($user, 13);
         }
-        elseif( $distance['distance'] >= 20000 )
+
+        if( $distance['distance'] >= 20000 )
         {
             self::giveAchievement($user, 12);
         }
-        elseif( $distance['distance'] >= 16000 )
+
+        if( $distance['distance'] >= 16000 )
         {
             self::giveAchievement($user, 11);
         }
-        elseif( $distance['distance'] >= 8000 )
+
+        if( $distance['distance'] >= 8000 )
         {
             self::giveAchievement($user, 10);
         }
-        elseif( $distance['distance'] >= 4000 )
+
+        if( $distance['distance'] >= 4000 )
         {
             self::giveAchievement($user, 9);
         }
-        elseif( $distance['distance'] >= 1000 )
+
+        if( $distance['distance'] >= 1000 )
         {
             self::giveAchievement($user, 8);
         }
@@ -290,19 +302,23 @@ abstract class StravaHandler extends Model
         {
             self::giveAchievement($user, 19);
         }
-        elseif( $duration['elapsedTime'] >= 7200 )
+
+        if( $duration['elapsedTime'] >= 7200 )
         {
             self::giveAchievement($user, 18);
         }
-        elseif( $duration['elapsedTime'] >= 3600 )
+
+        if( $duration['elapsedTime'] >= 3600 )
         {
             self::giveAchievement($user, 17);
         }
-        elseif( $duration['elapsedTime'] >= 1800 )
+
+        if( $duration['elapsedTime'] >= 1800 )
         {
             self::giveAchievement($user, 16);
         }
-        elseif( $duration['elapsedTime'] >= 900 )
+
+        if( $duration['elapsedTime'] >= 900 )
         {
             self::giveAchievement($user, 15);
         }
@@ -315,15 +331,18 @@ abstract class StravaHandler extends Model
         {
             self::giveAchievement($user, 23);
         }
-        elseif( $speed['averageSpeed'] >= 15 )
+
+        if( $speed['averageSpeed'] >= 15 )
         {
             self::giveAchievement($user, 22);
         }
-        elseif( $speed['averageSpeed'] >= 10 )
+
+        if( $speed['averageSpeed'] >= 10 )
         {
             self::giveAchievement($user, 21);
         }
-        elseif( $speed['averageSpeed'] >= 5 )
+
+        if( $speed['averageSpeed'] >= 5 )
         {
             self::giveAchievement($user, 20);
         }
@@ -340,19 +359,23 @@ abstract class StravaHandler extends Model
         {
             self::giveAchievement($user, 28);
         }
-        elseif( $interval >= 183 )
+
+        if( $interval >= 183 )
         {
             self::giveAchievement($user, 27);
         }
-        elseif( $interval >= 91 )
+
+        if( $interval >= 91 )
         {
             self::giveAchievement($user, 26);
         }
-        elseif( $interval >= 30 )
+
+        if( $interval >= 30 )
         {
             self::giveAchievement($user, 25);
         }
-        elseif( $interval >= 7 )
+
+        if( $interval >= 7 )
         {
             self::giveAchievement($user, 24);
         }
